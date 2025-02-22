@@ -6,7 +6,7 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 09:50:37 by salam             #+#    #+#             */
-/*   Updated: 2025/02/22 13:17:38 by salam            ###   ########.fr       */
+/*   Updated: 2025/02/22 14:52:08 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <cctype> // for isalpha
 #include <iomanip>  // For setw()
 
-class Content
+class Contact
 {
     private:
         std :: string firstName;

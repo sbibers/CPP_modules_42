@@ -1,20 +1,23 @@
-NAME = megaphone
+NAME = phonebook
 
-CPP = c++
+CXX = c++
+FLAGS = -Wall -Wextra -Werror
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-
-SRCS = megaphone.cpp
-
-OBJS = $(SRCS:.cpp=.o)
+SRC = megaphone.cpp
+OBJ_DIR = obj
+OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
+$(NAME): $(OBJ)
+	$(CXX) $(FLAGS) $(OBJ) -o $(NAME)
+
+$(OBJ_DIR)/%.o: %.cpp
+	mkdir -p $(OBJ_DIR)
+	$(CXX) $(FLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	rm -f $(NAME)

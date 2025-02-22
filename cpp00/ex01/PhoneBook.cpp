@@ -6,15 +6,13 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 10:08:45 by salam             #+#    #+#             */
-/*   Updated: 2025/02/22 13:17:32 by salam            ###   ########.fr       */
+/*   Updated: 2025/02/22 14:53:40 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <iostream>
 #include <iomanip>
-
-PhoneBook::PhoneBook() : index(0) , total_content(0){}
 
 void PhoneBook::addContact()
 {

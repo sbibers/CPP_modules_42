@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Content.cpp                                        :+:      :+:    :+:   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 09:55:52 by salam             #+#    #+#             */
-/*   Updated: 2025/02/22 13:15:52 by salam            ###   ########.fr       */
+/*   Updated: 2025/02/22 14:51:42 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-void Content::setContent()
+void Contact::setContent()
 {
     while (1)
     {
@@ -117,7 +117,7 @@ std::string truncateString(const std::string& str)
     return (str.length() > 10) ? str.substr(0, 9) + "." : str;
 }
 
-void Content::displayShortInfo(int index)
+void Contact::displayShortInfo(int index)
 {
     std::cout << "| " << std::setw(10) << std::right << index 
               << " | " << std::setw(10) << std::right << truncateString(firstName)
@@ -126,7 +126,7 @@ void Content::displayShortInfo(int index)
               << " |" << std::endl;
 }
 
-void Content::displayFullInfo()
+void Contact::displayFullInfo()
 {
     std :: cout << "First Name : " << firstName << std :: endl;
     std :: cout << "Last Name : " << lastName << std :: endl;
