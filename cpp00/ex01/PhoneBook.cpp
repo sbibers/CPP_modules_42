@@ -6,13 +6,11 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 10:08:45 by salam             #+#    #+#             */
-/*   Updated: 2025/02/22 14:53:40 by salam            ###   ########.fr       */
+/*   Updated: 2025/02/22 15:42:40 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include <iostream>
-#include <iomanip>
 
 void PhoneBook::addContact()
 {
@@ -22,40 +20,41 @@ void PhoneBook::addContact()
         total_content++;
 }
 
+// std::cin.clear() -> if the input does not number, use it to reset the input to normal.
 void PhoneBook::searchContacts()
 {
     if (total_content == 0)
     {
-        std::cout << "PhoneBook is empty." << std::endl;
+        std :: cout << "PhoneBook is empty." << std::endl;
         return;
     }
-    std::cout << "| " << std::setw(10) << "Index" 
+    std :: cout << "| " << std::setw(10) << "Index" 
               << " | " << std::setw(10) << "First Name" 
               << " | " << std::setw(10) << "Last Name" 
               << " | " << std::setw(10) << "Nickname" 
               << " |" << std::endl;
-    std::cout << "--------------------------------------------" << std::endl;
+    std :: cout << "--------------------------------------------" << std :: endl;
     for (int i = 0; i < total_content; i++)
     {
         content[i].displayShortInfo(i);
     }
-    std::cout << "Enter index to view details: ";
-    int search;
-    std::cin >> search;
-    if (std::cin.fail())
+    std :: cout << "Enter index to view details: ";
+    std :: string input;
+    std :: getline(std::cin, input);
+    try
     {
-        std::cin.clear();
-        std::cin.ignore(1000, '\n');
-        std :: cout << "Invalid input, Pleas enter a number." << std :: endl;
-        return;
+        int search = std::stoi(input);
+        if (search >= 0 && search < total_content)
+        {
+            content[search].displayFullInfo();
+        }
+        else
+        {
+            std :: cout << "❌ Invalid index!" << std :: endl;
+        }
     }
-    std::cin.ignore();
-    if (search >= 0 && search < total_content)
+    catch (std::invalid_argument&)
     {
-        content[search].displayFullInfo();
-    }
-    else
-    {
-        std::cout << "❌ Invalid index!" << std::endl;
+        std :: cout << "❌ Invalid input, Please enter a number." << std :: endl;
     }
 }

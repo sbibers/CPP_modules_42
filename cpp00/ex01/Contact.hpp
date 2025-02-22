@@ -6,7 +6,7 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 09:50:37 by salam             #+#    #+#             */
-/*   Updated: 2025/02/22 14:52:08 by salam            ###   ########.fr       */
+/*   Updated: 2025/02/22 15:43:01 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class Contact
         void setContent();
         void displayShortInfo(int index);
         void displayFullInfo();
+        std::string truncateString(std::string str);
 };
 
 #endif

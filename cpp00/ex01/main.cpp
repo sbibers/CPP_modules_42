@@ -6,7 +6,7 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 10:14:02 by salam             #+#    #+#             */
-/*   Updated: 2025/02/22 14:52:29 by salam            ###   ########.fr       */
+/*   Updated: 2025/02/22 15:23:34 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main()
         else if (command == "EXIT")
             break;
         else
-            std :: cout << "Invalid command !" << std :: endl;
+            std :: cout << "❌ Invalid command !" << std :: endl;
     }
     return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 09:55:52 by salam             #+#    #+#             */
-/*   Updated: 2025/02/22 14:51:42 by salam            ###   ########.fr       */
+/*   Updated: 2025/02/22 15:41:25 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void Contact::setContent()
             }
         }
         if (phoneNumber.empty() || !valid)
-            std::cout << "❌ Invalid Phone Number! It must be exactly 10 digits.\n";
+            std :: cout << "❌ Invalid Phone Number! It must be exactly 10 digits.\n";
         else
             break;
     }
@@ -106,17 +106,23 @@ void Contact::setContent()
             }
         }
         if (darkestSecret.empty() || !valid)
-            std::cout << "❌ Invalid Secret! Only letters are allowed.\n";
+            std :: cout << "❌ Invalid Secret! Only letters are allowed.\n";
         else
             break;
     }
 }
 
-std::string truncateString(const std::string& str)
+std::string Contact::truncateString(std::string str)
 {
-    return (str.length() > 10) ? str.substr(0, 9) + "." : str;
+    if (str.length() > 10)
+        return str.substr(0, 9) + ".";
+    else
+        return str;
 }
 
+// std::setw(10) -> use the width (number of names) that the text should have when printing.
+// If the printed text is shorter than the specified number, spaces are added automatically.
+// std::right -> the spaces will added before the text, and the text go to right. 
 void Contact::displayShortInfo(int index)
 {
     std::cout << "| " << std::setw(10) << std::right << index 
