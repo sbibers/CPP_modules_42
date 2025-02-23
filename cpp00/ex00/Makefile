@@ -1,6 +1,6 @@
-NAME = phonebook
+NAME = megaphone
 
-CXX = c++
+CPP = c++
 FLAGS = -Wall -Wextra -Werror
 
 SRC = megaphone.cpp
@@ -10,11 +10,11 @@ OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CXX) $(FLAGS) $(OBJ) -o $(NAME)
+	$(CPP) $(FLAGS) $(OBJ) -o $(NAME)
 
 $(OBJ_DIR)/%.o: %.cpp
 	mkdir -p $(OBJ_DIR)
-	$(CXX) $(FLAGS) -c $< -o $@
+	$(CPP) $(FLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJ_DIR)

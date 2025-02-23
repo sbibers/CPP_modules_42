@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 09:55:52 by salam             #+#    #+#             */
-/*   Updated: 2025/02/22 15:41:25 by salam            ###   ########.fr       */
+/*   Updated: 2025/02/23 17:35:28 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,97 +16,96 @@ void Contact::setContent()
 {
     while (1)
     {
-        std :: cout << "Enter First Name : ";
-        std :: getline(std :: cin, firstName);
-        bool valid = true;
-        for (char c : firstName)
-        {
-            if (!std::isalpha(c))
-            {
-                valid = false;
-                break;
-            }
-        }
-        if (firstName.empty() || !valid)
-            std::cout << "❌ Invalid First Name! Only letters are allowed.\n";
-        else
-            break;
-    }
-    while (1)
-    {
-        std :: cout << "Enter Last Name : ";
-        std :: getline(std :: cin, lastName);
-        bool valid = true;
-        for (char c : lastName)
-        {
-            if (!std::isalpha(c))
-            {
-                valid = false;
-                break;
-            }
-        }
-        if (lastName.empty() || !valid)
-            std::cout << "❌ Invalid Last Name! Only letters are allowed.\n";
-        else
-            break;
-    }
-    while (1)
-    {
-        std :: cout << "Enter Nickname : ";
-        std :: getline(std :: cin, nickName);
+        std::cout << "Enter First Name: ";
+        std::getline(std::cin, firstName);
 
-        bool valid = true;
-        for (char c : nickName)
+        bool valid = !firstName.empty();
+        for (size_t i = 0; i < firstName.length(); i++)
         {
-            if (!std::isalpha(c))
+            if (!std::isalpha(firstName[i]))
             {
                 valid = false;
                 break;
             }
         }
-        if (nickName.empty() || !valid)
-            std::cout << "❌ Invalid Nickname! Only letters are allowed.\n";
+        if (!valid)
+            std::cerr << "❌ Invalid First Name! Only letters are allowed.\n";
         else
             break;
     }
     while (1)
     {
-        std :: cout << "Enter Phone Number (10 digits): ";
-        std :: getline(std :: cin, phoneNumber);
-        bool valid = true;
-        if (phoneNumber.length() != 10)
-            valid = false;
-        else
+        std::cout << "Enter Last Name: ";
+        std::getline(std::cin, lastName);
+
+        bool valid = !lastName.empty();
+        for (size_t i = 0; i < lastName.length(); i++)
         {
-            for (char c : phoneNumber)
-            {
-                if (!std::isdigit(c))
-                {
-                    valid = false;
-                    break;
-                }
-            }
-        }
-        if (phoneNumber.empty() || !valid)
-            std :: cout << "❌ Invalid Phone Number! It must be exactly 10 digits.\n";
-        else
-            break;
-    }
-    while (1)
-    {
-        std :: cout << "Enter Darkest Secret : ";
-        std :: getline(std :: cin, darkestSecret);
-        bool valid = true;
-        for (char c : darkestSecret)
-        {
-            if (!std::isalpha(c))
+            if (!std::isalpha(lastName[i]))
             {
                 valid = false;
                 break;
             }
         }
-        if (darkestSecret.empty() || !valid)
-            std :: cout << "❌ Invalid Secret! Only letters are allowed.\n";
+        if (!valid)
+            std::cerr << "❌ Invalid Last Name! Only letters are allowed.\n";
+        else
+            break;
+    }
+    while (1)
+    {
+        std::cout << "Enter Nickname: ";
+        std::getline(std::cin, nickName);
+
+        bool valid = !nickName.empty();
+        for (size_t i = 0; i < nickName.length(); i++)
+        {
+            if (!std::isalpha(nickName[i]))
+            {
+                valid = false;
+                break;
+            }
+        }
+        if (!valid)
+            std::cerr << "❌ Invalid Nickname! Only letters are allowed.\n";
+        else
+            break;
+    }
+    while (1)
+    {
+        std::cout << "Enter Phone Number (10 digits): ";
+        std::getline(std::cin, phoneNumber);
+
+        bool valid = phoneNumber.length() == 10;
+        for (size_t i = 0; i < phoneNumber.length(); i++)
+        {
+            if (!std::isdigit(phoneNumber[i]))
+            {
+                valid = false;
+                break;
+            }
+        }
+        if (!valid)
+            std::cerr << "❌ Invalid Phone Number! It must be exactly 10 digits.\n";
+        else
+            break;
+    }
+    while (1)
+    {
+        std::cout << "Enter Darkest Secret: ";
+        std::getline(std::cin, darkestSecret);
+
+        bool valid = !darkestSecret.empty();
+        for (size_t i = 0; i < darkestSecret.length(); i++)
+        {
+            if (!std::isalpha(darkestSecret[i]))
+            {
+                valid = false;
+                break;
+            }
+        }
+        if (!valid)
+            std::cerr << "❌ Invalid Secret! Only letters are allowed.\n";
         else
             break;
     }

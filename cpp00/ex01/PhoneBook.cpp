@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 10:08:45 by salam             #+#    #+#             */
-/*   Updated: 2025/02/22 15:42:40 by salam            ###   ########.fr       */
+/*   Updated: 2025/02/23 19:55:50 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void PhoneBook::searchContacts()
               << " | " << std::setw(10) << "Last Name" 
               << " | " << std::setw(10) << "Nickname" 
               << " |" << std::endl;
-    std :: cout << "--------------------------------------------" << std :: endl;
+    std :: cout << "-----------------------------------------------------" << std :: endl;
     for (int i = 0; i < total_content; i++)
     {
         content[i].displayShortInfo(i);
@@ -41,20 +41,18 @@ void PhoneBook::searchContacts()
     std :: cout << "Enter index to view details: ";
     std :: string input;
     std :: getline(std::cin, input);
-    try
+    for (size_t i = 0; input[i]; i++)
     {
-        int search = std::stoi(input);
-        if (search >= 0 && search < total_content)
+        if (!std::isdigit(input[i]))
         {
-            content[search].displayFullInfo();
-        }
-        else
-        {
-            std :: cout << "❌ Invalid index!" << std :: endl;
+            std :: cerr << "❌ Invalid input, Please enter a number." << std :: endl;    
+            return;
         }
     }
-    catch (std::invalid_argument&)
+    int search = std::atoi(input.c_str());
+    if (search >= 0 && search < total_content)
+        content[search].displayFullInfo();
+    else
     {
-        std :: cout << "❌ Invalid input, Please enter a number." << std :: endl;
-    }
+        std :: cerr << "❌ Invalid index!" << std :: endl;
 }

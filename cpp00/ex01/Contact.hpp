@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 09:50:37 by salam             #+#    #+#             */
-/*   Updated: 2025/02/22 15:43:01 by salam            ###   ########.fr       */
+/*   Updated: 2025/02/23 17:27:48 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <string>
 #include <cctype> // for isalpha
 #include <iomanip>  // For setw()
+#include <cstdlib> // for atoi
 
 class Contact
 {

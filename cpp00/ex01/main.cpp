@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 10:14:02 by salam             #+#    #+#             */
-/*   Updated: 2025/02/22 15:23:34 by salam            ###   ########.fr       */
+/*   Updated: 2025/02/23 17:35:29 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main()
         else if (command == "EXIT")
             break;
         else
-            std :: cout << "❌ Invalid command !" << std :: endl;
+            std :: cerr << "❌ Invalid command !" << std :: endl;
     }
     return (0);
 }
