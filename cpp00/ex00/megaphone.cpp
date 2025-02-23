@@ -6,11 +6,12 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 21:59:45 by salam             #+#    #+#             */
-/*   Updated: 2025/02/21 22:18:29 by salam            ###   ########.fr       */
+/*   Updated: 2025/02/23 18:41:02 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
 
 int main(int argc, char *argv[])
 {
