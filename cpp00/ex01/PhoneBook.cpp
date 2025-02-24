@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 10:08:45 by salam             #+#    #+#             */
-/*   Updated: 2025/02/23 19:55:50 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/02/24 14:40:25 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,5 @@ void PhoneBook::searchContacts()
     else
     {
         std :: cerr << "❌ Invalid index!" << std :: endl;
+    }
 }
