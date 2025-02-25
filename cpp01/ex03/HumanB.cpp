@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:43:32 by sbibers           #+#    #+#             */
-/*   Updated: 2025/02/24 18:34:02 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/02/25 12:55:03 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void HumanB::setWeapon(Weapon &weapon)
 {
     this->weapon = &weapon;
 }
-
 
 void HumanB::attack()
 {
