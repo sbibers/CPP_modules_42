@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 19:28:25 by sbibers           #+#    #+#             */
-/*   Updated: 2025/02/25 19:28:43 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/02/26 12:16:32 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,5 @@ int main()
     harl.complain("INFO");
     harl.complain("WARNING");
     harl.complain("ERROR");
-
-    return 0;
+    return (0);
 }

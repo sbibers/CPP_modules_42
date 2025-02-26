@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 19:15:13 by sbibers           #+#    #+#             */
-/*   Updated: 2025/02/25 19:19:48 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/02/26 12:13:41 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 class Harl
 {
     private:
-        void debug( void );
-        void info( void );
-        void warning( void );
-        void error( void );
+        void debug(void);
+        void info(void);
+        void warning(void);
+        void error(void);
     public:
         void complain(std::string level);
 };

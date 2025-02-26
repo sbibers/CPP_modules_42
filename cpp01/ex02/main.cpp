@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 16:58:25 by sbibers           #+#    #+#             */
-/*   Updated: 2025/02/25 18:08:53 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/02/26 11:29:29 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 int main()
 {
     std::string str = "HI THIS IS BRAIN";
-    std::string *stringPTR = &str; // pointer to str keep the address.
-    std::string &stringREF = str; // reference to str direcetly.
+    std::string *stringPTR = &str;
+    std::string &stringREF = str;
 
     std :: cout << "Memory address : " << std :: endl;
     std :: cout << "str : " << &str << std :: endl;

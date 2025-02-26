@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:21:30 by sbibers           #+#    #+#             */
-/*   Updated: 2025/02/24 18:36:33 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/02/26 11:36:11 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void Weapon::setType(std:: string type)
     this->type = type;
 }
 
-std::string Weapon::getType()
+std::string const& Weapon::getType() const
 {
     return (this->type);
 }

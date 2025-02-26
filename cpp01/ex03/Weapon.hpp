@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:10:39 by sbibers           #+#    #+#             */
-/*   Updated: 2025/02/24 18:17:51 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/02/26 11:41:19 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Weapon
         Weapon();
         Weapon(std::string type);
         void setType(std::string type);
-        std::string getType();
+        std::string const& getType() const;
 };
 
 #endif

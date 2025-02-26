@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 15:12:42 by sbibers           #+#    #+#             */
-/*   Updated: 2025/02/25 16:08:36 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/02/26 11:22:09 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 class Zombie
 {
     private:
-        char *batata;
         std::string name;
     public:
         void announce();
