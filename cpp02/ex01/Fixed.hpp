@@ -6,7 +6,7 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 19:27:00 by salam             #+#    #+#             */
-/*   Updated: 2025/02/28 19:42:00 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/01 14:42:26 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,13 @@ class Fixed
         ~Fixed();
         int getRawBits(void) const;
         void setRawBits(int const raw);
-        Fixed(const int value);
-        Fixed(const float value);
-        float to_float(void) const;
-        int to_int(void) const;
+        Fixed(const int value); // Int constructor.
+        Fixed(const float value); // Float constructor.
+        float to_float(void) const; // Getter for float.
+        int to_int(void) const; // Getter for int.
 };
 
 std::ostream &operator << (std::ostream &out, const Fixed &fixed);
+// To print the object use the std :: cout << obj << std :: endl;
 
 #endif

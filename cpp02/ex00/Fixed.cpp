@@ -6,7 +6,7 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 18:02:07 by salam             #+#    #+#             */
-/*   Updated: 2025/02/28 18:12:46 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/01 14:18:04 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ Fixed::Fixed()
     std :: cout << "Default constructor called" << std :: endl;
 }
 
-Fixed::Fixed(const Fixed &copy) // copy constructor.
+Fixed::Fixed(const Fixed &copy)
 {
     std :: cout << "Copy constructor called" << std :: endl;
-    *this = copy;
+    this->value = copy.value;
 }
 
 Fixed::~Fixed()
