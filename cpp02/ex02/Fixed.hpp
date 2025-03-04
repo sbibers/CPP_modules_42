@@ -6,7 +6,7 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:43:33 by salam             #+#    #+#             */
-/*   Updated: 2025/03/01 14:50:00 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/04 17:11:33 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ class Fixed
         Fixed(const Fixed &copy); // copy constructor.
         ~Fixed(); // destructor.
         Fixed &operator=(const Fixed &copy); // Assignment operator.
-        int getRawBits(void) const;
-        void setRawBits(int const raw);
+        int getRawBits(void) const; // setter.
+        void setRawBits(int const raw); // getter.
         float to_float(void) const;
         int to_int(void) const;
         bool operator>(const Fixed &fix) const;
@@ -51,7 +51,8 @@ class Fixed
         static Fixed &max(Fixed &fix1, Fixed &fix2);
         static const Fixed &min(const Fixed &fix1, const Fixed &fix2);
         static const Fixed &max(const Fixed &fix1, const Fixed &fix2);
-        friend std::ostream &operator<<(std::ostream &out, const Fixed &fix);
 };
+    
+std::ostream &operator << (std::ostream &out, const Fixed &fixed);
 
 #endif

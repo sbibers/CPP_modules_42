@@ -6,7 +6,7 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:51:14 by salam             #+#    #+#             */
-/*   Updated: 2025/03/01 14:54:32 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/04 17:11:42 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main()
 {
     Fixed a;
     Fixed const b(Fixed(5.05f) * Fixed(2));
-
+    
     std :: cout <<  a << std :: endl;
     std :: cout << ++a << std :: endl;
     std :: cout << a << std :: endl;
