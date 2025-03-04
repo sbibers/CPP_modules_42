@@ -6,13 +6,14 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 19:26:46 by salam             #+#    #+#             */
-/*   Updated: 2025/03/01 14:31:15 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/04 16:36:09 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <cstdlib>
 
-int main()
+int main(void)
 {
     Fixed a;
     Fixed const b(10);
@@ -24,7 +25,6 @@ int main()
     std :: cout << "b is " << b << std :: endl;
     std :: cout << "c is " << c << std :: endl;
     std :: cout << "d is " << d << std :: endl;
-
     std :: cout << "a is " << a.to_int() << " as integer" << std :: endl;
     std :: cout << "b is " << b.to_int() << " as integer" << std :: endl;
     std :: cout << "c is " << c.to_int() << " as integer" << std :: endl;

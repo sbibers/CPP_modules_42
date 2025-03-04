@@ -6,11 +6,12 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 19:34:34 by salam             #+#    #+#             */
-/*   Updated: 2025/03/01 14:38:01 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/04 16:42:15 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <cstdlib>
 
 Fixed::Fixed()
 {
@@ -26,7 +27,7 @@ Fixed::Fixed(const Fixed &copy)
 
 Fixed &Fixed::operator = (const Fixed &copy)
 {
-    std :: cout << "Assignation operator called" << std :: endl;
+    std :: cout << "Copy assignment operator called" << std :: endl;
     this->value = copy.value;
     return (*this);
 }
