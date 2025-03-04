@@ -6,43 +6,43 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 18:02:07 by salam             #+#    #+#             */
-/*   Updated: 2025/03/01 14:18:04 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/04 15:56:38 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed()
+Fixed::Fixed() // default constructor.
 {
-    this->value = 0;
+    value = 0;
     std :: cout << "Default constructor called" << std :: endl;
 }
 
-Fixed::Fixed(const Fixed &copy)
+Fixed::Fixed(const Fixed &copy) // copy constructor.
 {
     std :: cout << "Copy constructor called" << std :: endl;
-    this->value = copy.value;
+    value = copy.value;
 }
 
-Fixed::~Fixed()
+Fixed::~Fixed() // destructor.
 {
     std :: cout << "Destructor called" << std :: endl;
 }
 
-Fixed &Fixed::operator = (const Fixed &copy) // copy assignment operator.
+Fixed &Fixed::operator = (const Fixed &copy) // assignment operator.
 {
     std :: cout << "Assignation operator called" << std :: endl;
-    this->value = copy.getRawBits();
+    value = copy.value;
     return (*this);
 }
 
-void Fixed::setRawBits(int const raw)
+void Fixed::setRawBits(int const raw) // setter.
 {
-    this->value = raw;
+    value = raw;
 }
 
-int Fixed::getRawBits(void) const
+int Fixed::getRawBits(void) const // getter.
 {
     std :: cout << "getRawBits member function called" << std :: endl;
-    return (this->value);
+    return (value);
 }
