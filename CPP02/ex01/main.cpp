@@ -6,7 +6,7 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 19:26:46 by salam             #+#    #+#             */
-/*   Updated: 2025/03/04 16:36:09 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/06 19:30:53 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int main(void)
     std :: cout << "b is " << b << std :: endl;
     std :: cout << "c is " << c << std :: endl;
     std :: cout << "d is " << d << std :: endl;
-    std :: cout << "a is " << a.to_int() << " as integer" << std :: endl;
-    std :: cout << "b is " << b.to_int() << " as integer" << std :: endl;
-    std :: cout << "c is " << c.to_int() << " as integer" << std :: endl;
-    std :: cout << "d is " << d.to_int() << " as integer" << std :: endl;
+    std :: cout << "a is " << a.toInt() << " as integer" << std :: endl;
+    std :: cout << "b is " << b.toInt() << " as integer" << std :: endl;
+    std :: cout << "c is " << c.toInt() << " as integer" << std :: endl;
+    std :: cout << "d is " << d.toInt() << " as integer" << std :: endl;
     return (0);
 }

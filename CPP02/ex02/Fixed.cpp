@@ -6,7 +6,7 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:50:09 by salam             #+#    #+#             */
-/*   Updated: 2025/03/04 17:22:06 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/06 19:30:03 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,12 @@ int Fixed::getRawBits(void) const // getter.
     return (value);
 }
 
-float Fixed::to_float(void) const // convert to float.
+float Fixed::toFloat(void) const // convert to float.
 {
     return ((float)value / 256.0f);
 }
 
-int Fixed::to_int(void) const  // convert to int.
+int Fixed::toInt(void) const  // convert to int.
 {
     return (value / 256);
 }
@@ -112,22 +112,22 @@ bool Fixed::operator!=(const Fixed &fix) const // not equal operator.
 
 Fixed Fixed::operator+(const Fixed &fix) const // addition operator.
 {
-    return Fixed(this->to_float() + fix.to_float());
+    return Fixed(this->toFloat() + fix.toFloat());
 }
 
 Fixed Fixed::operator-(const Fixed &fix) const // subtraction operator.
 {
-    return Fixed(this->to_float() - fix.to_float());
+    return Fixed(this->toFloat() - fix.toFloat());
 }
 
 Fixed Fixed::operator*(const Fixed &fix) const // multiplication operator.
 {
-    return Fixed(this->to_float() * fix.to_float());
+    return Fixed(this->toFloat() * fix.toFloat());
 }
 
 Fixed Fixed::operator/(const Fixed &fix) const // division operator.
 {
-    return Fixed(this->to_float() / fix.to_float());
+    return Fixed(this->toFloat() / fix.toFloat());
 }
 
 Fixed &Fixed::operator++() // pre-increment operator.
@@ -186,6 +186,6 @@ const Fixed &Fixed::max(const Fixed &fix1, const Fixed &fix2) // max function.
 
 std::ostream &operator<<(std::ostream &out, const Fixed &fix) // output stream operator.
 {
-    out << fix.to_float();
+    out << fix.toFloat();
     return (out);
 }

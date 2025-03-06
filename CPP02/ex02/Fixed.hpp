@@ -6,7 +6,7 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:43:33 by salam             #+#    #+#             */
-/*   Updated: 2025/03/04 17:11:33 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/06 19:30:07 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ class Fixed
         Fixed &operator=(const Fixed &copy); // Assignment operator.
         int getRawBits(void) const; // setter.
         void setRawBits(int const raw); // getter.
-        float to_float(void) const;
-        int to_int(void) const;
+        float toFloat(void) const;
+        int toInt(void) const;
         bool operator>(const Fixed &fix) const;
         bool operator<(const Fixed &fix) const;
         bool operator>=(const Fixed &fix) const;

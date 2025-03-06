@@ -6,7 +6,7 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 19:34:34 by salam             #+#    #+#             */
-/*   Updated: 2025/03/04 16:42:15 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/06 19:30:58 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,18 +61,18 @@ Fixed::Fixed(const float value)
     this->value = roundf(value * 256.0f);
 }
 
-float Fixed::to_float(void) const
+float Fixed::toFloat(void) const
 {
     return ((float)value / 256.0f);
 }
 
-int Fixed::to_int(void) const
+int Fixed::toInt(void) const
 {
     return (value / 256);
 }
 
 std::ostream &operator << (std::ostream &out, const Fixed &fixed) // stream output operator.
 {
-    out << fixed.to_float();
+    out << fixed.toFloat();
     return (out);
 }

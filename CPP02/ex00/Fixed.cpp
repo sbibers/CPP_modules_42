@@ -6,7 +6,7 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 18:02:07 by salam             #+#    #+#             */
-/*   Updated: 2025/03/04 15:56:38 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/06 19:29:10 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Fixed::~Fixed() // destructor.
 
 Fixed &Fixed::operator = (const Fixed &copy) // assignment operator.
 {
-    std :: cout << "Assignation operator called" << std :: endl;
+    std :: cout << "Copy assignment operator called" << std :: endl;
     value = copy.value;
     return (*this);
 }
