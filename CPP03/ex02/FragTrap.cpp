@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/07 19:27:34 by salam             #+#    #+#             */
+/*   Updated: 2025/03/08 16:16:29 by salam            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap() : ClapTrap() // default constructor
@@ -8,8 +20,9 @@ FragTrap::FragTrap() : ClapTrap() // default constructor
     std::cout << "FragTrap default constructor called" << std::endl;
 }
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name) // parameterized constructor
+FragTrap::FragTrap(std::string name) : ClapTrap() // parameterized constructor
 {
+    this->setName(name);
     this->setHitPoints(100);
     this->setEnergyPoints(100);
     this->setAttackDamage(30);
@@ -25,10 +38,10 @@ FragTrap::FragTrap(const FragTrap &frag) : ClapTrap(frag) // copy constructor
 FragTrap &FragTrap::operator=(const FragTrap &frag) // assignment operator
 {
     std::cout << "FragTrap assignation operator called" << std::endl;
-    if (this != &frag)
-    {
-        ClapTrap::operator=(frag);
-    }
+    this->setName(frag.getName());
+    this->setHitPoints(frag.getHitPoints());
+    this->setEnergyPoints(frag.getEnergyPoints());
+    this->setAttackDamage(frag.getAttackDamage());
     return *this;
 }
 

@@ -6,11 +6,10 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 18:06:58 by salam             #+#    #+#             */
-/*   Updated: 2025/03/07 23:23:39 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/08 16:15:11 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 #include <cstdlib>
@@ -26,7 +25,7 @@ int main()
     clap.attack("enemy");
     clap.beRepaired(5);
     
-    std::cout << "\n-------------ScavTrap Tests-------------" << std::endl;
+    std::cout << "-------------ScavTrap Tests-------------" << std::endl;
     ScavTrap scav("ScavTrap");
     ScavTrap scav2(scav);
     ScavTrap scav3 = scav;
@@ -34,28 +33,20 @@ int main()
     std::cout << "ScavTrap " << scav.getName() << " has " << scav.getHitPoints() << " hit points, " 
               << scav.getEnergyPoints() << " energy points, and " 
               << scav.getAttackDamage() << " attack damage." << std::endl;
-    // std :: exit(0);
     scav.attack("enemy");
     scav.takeDamage(30);
-    // std :: exit(0);
     scav.beRepaired(20);
     scav.guardGate();
-    // std :: exit(0);
     scav.attack("enemy");
-    // std :: exit(0);
-    std::cout << "\n-------------Construction/Destruction Chaining Demo-------------" << std::endl;
-    {
-        std::cout << "Creating a ScavTrap..." << std::endl;
-        ScavTrap tempScav("TempScav");
-        std::cout << "ScavTrap created, now destroying..." << std::endl;
-    }
-    std::cout << "\n-------------FragTrap Tests-------------" << std::endl;
+    std::cout << "-------------FragTrap Tests-------------" << std::endl;
     FragTrap frag("FragTrap");
     FragTrap frag2(frag);
     FragTrap frag3 = frag;
+    
     frag.attack("enemy");
     frag.takeDamage(30);
     frag.beRepaired(20);
     frag.highFivesGuys();
+    std::cout << "-------------Construction/Destruction Chaining Demo-------------" << std::endl;
     return (0);
 }
