@@ -6,7 +6,7 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 19:58:13 by salam             #+#    #+#             */
-/*   Updated: 2025/03/08 14:58:20 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/07 22:52:53 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ class ClapTrap
     private:
         std :: string name;
         unsigned int hit_points;
-        unsigned int energy_points;
+        unsigned int energy_points; // energy points that the claptrap has attack or be repaired.
         unsigned int attack_damage;
     public:
         ClapTrap(); // default constructor
         ClapTrap(std::string name); // parameterized constructor
         ClapTrap(const ClapTrap &clap); // copy constructor
-        ClapTrap &operator=(const ClapTrap &clap); // copy assignment operator
+        ClapTrap &operator=(const ClapTrap &clap); // assignation operator
         ~ClapTrap(); // destructor
         void attack(std::string const & target);
         void takeDamage(unsigned int amount);
