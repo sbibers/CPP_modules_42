@@ -6,7 +6,7 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 19:27:34 by salam             #+#    #+#             */
-/*   Updated: 2025/03/08 15:15:15 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/08 15:35:56 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,19 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap() // parameterized constructor
     std :: cout << "ScavTrap parameterized constructor called" << std :: endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &scav) : ClapTrap(scav) // copy constructor
+ScavTrap::ScavTrap(const ScavTrap &scav) : ClapTrap() // copy constructor
 {
     std :: cout << "ScavTrap copy constructor called" << std :: endl;
     *this = scav;
 }
 
-ScavTrap &ScavTrap::operator=(const ScavTrap &scav) // assignment operator
+ScavTrap &ScavTrap::operator=(const ScavTrap &scav) // copy assignment operator
 {
     std :: cout << "ScavTrap assignation operator called" << std :: endl;
-    if (this != &scav)
-    {
-        ClapTrap::operator=(scav);
-    }
+    this->setName(scav.getName());
+    this->setHitPoints(scav.getHitPoints());
+    this->setEnergyPoints(scav.getEnergyPoints());
+    this->setAttackDamage(scav.getAttackDamage());
     return (*this);
 }
 

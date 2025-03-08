@@ -6,13 +6,11 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 18:06:58 by salam             #+#    #+#             */
-/*   Updated: 2025/03/08 15:20:15 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/08 15:34:37 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
-#include <cstdlib>
 
 int main()
 {
