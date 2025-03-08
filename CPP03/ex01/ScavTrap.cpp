@@ -6,7 +6,7 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 19:27:34 by salam             #+#    #+#             */
-/*   Updated: 2025/03/07 23:04:59 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/08 15:15:15 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,13 @@ ScavTrap::ScavTrap() : ClapTrap() // default constructor
     std :: cout << "ScavTrap default constructor called" << std :: endl;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name) // parameterized constructor
+ScavTrap::ScavTrap(std::string name) : ClapTrap() // parameterized constructor
 {
+    this->setName(name);
     this->setHitPoints(100);
     this->setEnergyPoints(50);
     this->setAttackDamage(20);
-    std :: cout << "ScavTrap parameterized constructor called for " << name << std :: endl;
+    std :: cout << "ScavTrap parameterized constructor called" << std :: endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &scav) : ClapTrap(scav) // copy constructor
@@ -41,7 +42,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &scav) // assignment operator
     {
         ClapTrap::operator=(scav);
     }
-    return *this;
+    return (*this);
 }
 
 ScavTrap::~ScavTrap() // destructor
@@ -49,7 +50,7 @@ ScavTrap::~ScavTrap() // destructor
     std :: cout << "ScavTrap destructor called for " << this->getName() << std :: endl;
 }
 
-void ScavTrap::attack(std::string const & target) // attack function
+void ScavTrap::attack(std::string const & target)
 {
     if (this->getEnergyPoints() <= 0)
     {

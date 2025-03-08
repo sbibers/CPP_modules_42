@@ -6,7 +6,7 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 19:58:02 by salam             #+#    #+#             */
-/*   Updated: 2025/03/07 23:03:23 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/08 15:19:59 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ ClapTrap::ClapTrap(const ClapTrap &clap) // copy constructor
 
 ClapTrap::~ClapTrap() // destructor
 {
-    std :: cout << "ClapTrap Destructor called" << std :: endl;
+    std :: cout << "ClapTrap Destructor called for ClapTrap" << std :: endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &clap) // copy assignment operator
