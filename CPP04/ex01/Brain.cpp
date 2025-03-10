@@ -6,7 +6,7 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 15:14:55 by salam             #+#    #+#             */
-/*   Updated: 2025/03/10 15:42:11 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/10 21:26:00 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,11 @@ void Brain::setIdeas(int index, std::string idea)
 
 std::string Brain::getIdeas(int index) const
 {
+    if (index < 0 || index >= 100)
+    {
+        std :: cerr << "Error: Index is out of bounds" << std :: endl;
+        return ("");
+    }
     return (this->ideas[index]);
 }
 
