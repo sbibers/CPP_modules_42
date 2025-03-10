@@ -6,7 +6,7 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 19:58:02 by salam             #+#    #+#             */
-/*   Updated: 2025/03/08 15:34:12 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/10 21:20:31 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,30 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    if (this->energy_points <= 0 || this->hit_points <= 0)
+    if (this->hit_points <= 0)
     {
-        std :: cout << "ClapTrap " << this->name << " can't be repaired because it has no energy or hit points" << std :: endl;
+        std :: cout << "ClapTrap " << this->name << " can't be repaired because it has no hit points" << std :: endl;
         return ;
     }
-    std :: cout << "ClapTrap " << this->name << " be repaired " << amount << " points!" << std :: endl;
+    if (this->energy_points <= 0)
+    {
+        std :: cout << "ClapTrap " << this->name << " can't be repaired because it has no energy points" << std :: endl;
+        return ;
+    }
+    if (!amount)
+    {
+        std :: cout << "ClapTrap " << this->name << " can't be repaired because the amount is 0" << std :: endl;
+        return ;
+    }
+    if ((unsigned long)(amount + this->hit_points) >= std::numeric_limits<unsigned int>::max())
+    {
+        std :: cout << "ClapTrap " << this->name << " hit points is full!" << std :: endl;
+        this->hit_points = std::numeric_limits<unsigned int>::max();
+        std :: cout << "ClapTrap " << this->name << " be repaired by " << std::numeric_limits<unsigned int>::max << " points!" << std :: endl;
+        this->energy_points--;
+        return ;
+    }
+    std :: cout << "ClapTrap " << this->name << " be repaired by " << amount << " points!" << std :: endl;
     this->hit_points += amount;
     this->energy_points--;
 }
