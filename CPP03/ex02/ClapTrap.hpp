@@ -6,7 +6,7 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 19:58:13 by salam             #+#    #+#             */
-/*   Updated: 2025/03/08 16:09:28 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/10 21:21:57 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <string>
+#include <limits>
 
 class ClapTrap
 {
