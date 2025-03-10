@@ -1,57 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 16:27:43 by salam             #+#    #+#             */
-/*   Updated: 2025/03/10 16:04:45 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/10 16:15:17 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
-Animal::Animal()
+AAnimal::AAnimal()
 {
     this->type = "";
-    std :: cout << "Animal Constructor Called" << std :: endl;
+    std :: cout << "AAnimal Constructor Called" << std :: endl;
 }
 
-Animal::Animal(std::string type)
+AAnimal::AAnimal(std::string type)
 {
     this->type = type;
-    std :: cout << "Animal parameterized Constructor Called" << std :: endl;
+    std :: cout << "AAnimal parameterized Constructor Called" << std :: endl;
 }
 
-Animal::Animal(const Animal &copy)
+AAnimal::AAnimal(const AAnimal &copy)
 {
-    std :: cout << "Animal Copy Constructor Called" << std :: endl;
+    std :: cout << "AAnimal Copy Constructor Called" << std :: endl;
     *this = copy;
 }
 
-Animal &Animal::operator=(const Animal &obj)
+AAnimal &AAnimal::operator=(const AAnimal &obj)
 {
     this->type = obj.type;
     return (*this);
 }
 
-void Animal::makeSound() const
+void AAnimal::makeSound() const
 {
-    std :: cout << "Animal Sound ..." << std :: endl;
+    std :: cout << "AAnimal Sound ..." << std :: endl;
 }
 
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
-    std :: cout << "Animal Destructor Called" << std :: endl;
+    std :: cout << "AAnimal Destructor Called" << std :: endl;
 }
 
-void Animal::setType(std::string type)
+void AAnimal::setType(std::string type)
 {
     this->type = type;
 }
 
-std::string Animal::getType() const
+std::string AAnimal::getType() const
 {
     if (this->type.empty())
         return ("type of class Animal is not set");

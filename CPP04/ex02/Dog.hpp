@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/08 16:25:50 by salam             #+#    #+#             */
-/*   Updated: 2025/03/10 16:04:38 by salam            ###   ########.fr       */
+/*   Created: 2025/03/08 16:24:59 by salam             #+#    #+#             */
+/*   Updated: 2025/03/10 16:15:02 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Cat : public Animal
+class Dog : public AAnimal
 {
     private:
         Brain *brain;
     public:
-        Cat();
-        Cat(std::string type);
-        Cat(const Cat &copy);
-        Cat &operator=(const Cat &obj);
-        ~Cat();
+        Dog();
+        Dog(std::string type);
+        Dog(const Dog &copy);
+        Dog &operator=(const Dog &obj);
+        ~Dog();
         void makeSound() const;
         void setBrain(Brain *brain);
         Brain *getBrain() const;

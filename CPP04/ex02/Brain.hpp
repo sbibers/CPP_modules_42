@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/08 16:25:50 by salam             #+#    #+#             */
-/*   Updated: 2025/03/10 16:04:38 by salam            ###   ########.fr       */
+/*   Created: 2025/03/10 14:49:32 by salam             #+#    #+#             */
+/*   Updated: 2025/03/10 15:42:08 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include <iostream>
+#include <string>
 
-class Cat : public Animal
+class Brain
 {
     private:
-        Brain *brain;
+        std::string ideas[100];
     public:
-        Cat();
-        Cat(std::string type);
-        Cat(const Cat &copy);
-        Cat &operator=(const Cat &obj);
-        ~Cat();
-        void makeSound() const;
-        void setBrain(Brain *brain);
-        Brain *getBrain() const;
+        Brain();
+        Brain(const std::string *arr_of_ideas, size_t size);
+        ~Brain();
+        Brain(const Brain &copy);
+        Brain &operator=(const Brain &obj);
+        void setIdeas(int index, std::string idea);
+        std::string getIdeas(int index) const;
 };
+
 
 #endif

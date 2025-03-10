@@ -6,7 +6,7 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 16:22:30 by salam             #+#    #+#             */
-/*   Updated: 2025/03/10 16:03:55 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/10 16:11:48 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,21 @@
 #include <iostream>
 #include <string>
 
-class Animal
+// abstract class, class has at least one pure virtual function, pure virtual function executed by child class
+
+class AAnimal
 {
     protected:
         std::string type;
     public:
-        Animal();
-        Animal(std::string type);
-        Animal(const Animal &copy);
-        Animal &operator=(const Animal &obj);
-        virtual ~Animal();
+        AAnimal();
+        AAnimal(std::string type);
+        AAnimal(const AAnimal &copy);
+        AAnimal &operator=(const AAnimal &obj);
+        virtual ~AAnimal();
         void setType(std::string type);
         std::string getType() const;
-        virtual void makeSound() const;
+        virtual void makeSound() const = 0; // pure virtual function
 };
 
 // virtual : To ensure a function call makeSound() depends on the type of the object(Cat or Dog) 
