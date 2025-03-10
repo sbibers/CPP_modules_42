@@ -6,7 +6,7 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 16:27:43 by salam             #+#    #+#             */
-/*   Updated: 2025/03/08 16:58:40 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/10 14:37:41 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Animal::Animal()
 {
-    this->type = "Animal";
+    this->type = "";
     std :: cout << "Animal Constructor Called" << std :: endl;
 }
 
@@ -53,5 +53,7 @@ void Animal::setType(std::string type)
 
 std::string Animal::getType() const
 {
+    if (this->type.empty())
+        return ("type of class Animal is not set");
     return (this->type);
 }

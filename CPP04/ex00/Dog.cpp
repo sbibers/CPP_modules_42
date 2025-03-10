@@ -6,7 +6,7 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 16:43:47 by salam             #+#    #+#             */
-/*   Updated: 2025/03/08 17:19:38 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/10 14:43:18 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@ Dog::Dog(std::string type) : Animal(type)
     std :: cout << "Dog parameterized Constructor Called" << std :: endl;
 }
 
-Dog::Dog(const Dog &copy) : Animal()
+Dog::Dog(const Dog &copy) : Animal(copy)
 {
     std :: cout << "Dog Copy Constructor Called" << std :: endl;
-    this->type = copy.type;
 }
 
 Dog &Dog::operator=(const Dog &obj)

@@ -6,7 +6,7 @@
 /*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 16:21:46 by salam             #+#    #+#             */
-/*   Updated: 2025/03/08 17:39:59 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/10 14:44:07 by salam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 int main()
 {
     std :: cout << "------------Correct Animal Tests------------" << std :: endl;
-    const Animal    *meta = new Animal();
+    const Animal    *meta = new Animal("Animal");
     const Animal    *i = new Dog();
     const Animal    *j = new Cat();
     
@@ -43,11 +43,11 @@ int main()
     
     std :: cout << "WrongCat type: " << wrong_cat->getType() << std :: endl;
     std :: cout << "WrongCat through WrongAnimal pointer sound: ";
-    wrong_cat->makeSound(); // This will call WrongAnimal::makeSound(), because it does not have virtual function
+    wrong_cat->makeSound(); // call WrongAnimal::makeSound(), because it does not have virtual function
     std :: cout << "WrongAnimal sound: ";
-    wrong_animal->makeSound();  // This will call WrongAnimal::makeSound(), because it does not have virtual function
+    wrong_animal->makeSound();  // call WrongAnimal::makeSound(), because it does not have virtual function
     std :: cout << "Direct WrongCat sound: ";
-    direct_wrong_cat->makeSound(); // This will call WrongCat::makeSound()
+    direct_wrong_cat->makeSound(); // call WrongCat::makeSound()
     delete (wrong_animal);
     delete (wrong_cat);
     delete (direct_wrong_cat);
