@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 19:27:34 by salam             #+#    #+#             */
-/*   Updated: 2025/03/08 15:16:51 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/12 12:24:07 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class ScavTrap : public ClapTrap
         ScavTrap(const ScavTrap &scav); // copy constructor
         ScavTrap &operator=(const ScavTrap &scav); // copy assignment operator
         ~ScavTrap(); // destructor
-        void attack(std::string const & target); // override
+        void attack(std::string const &target); // override
         void guardGate();
 };
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 19:58:02 by salam             #+#    #+#             */
-/*   Updated: 2025/03/10 21:20:31 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/12 12:27:54 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void ClapTrap::beRepaired(unsigned int amount)
     {
         std :: cout << "ClapTrap " << this->name << " hit points is full!" << std :: endl;
         this->hit_points = std::numeric_limits<unsigned int>::max();
-        std :: cout << "ClapTrap " << this->name << " be repaired by " << std::numeric_limits<unsigned int>::max << " points!" << std :: endl;
+        std :: cout << "ClapTrap " << this->name << " be repaired by " << std::numeric_limits<unsigned int>::max() << " points!" << std :: endl;
         this->energy_points--;
         return ;
     }

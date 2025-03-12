@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salam <salam@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 19:27:34 by salam             #+#    #+#             */
-/*   Updated: 2025/03/08 16:16:29 by salam            ###   ########.fr       */
+/*   Updated: 2025/03/12 12:29:56 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,14 @@ FragTrap::~FragTrap() // destructor
 
 void FragTrap::attack(const std::string& target) // attack function
 {
-    if (this->getEnergyPoints() <= 0)
-    {
-        std::cout << "FragTrap " << this->getName() << " has no energy points left to attack!" << std::endl;
-        return;
-    }
     if (this->getHitPoints() <= 0)
     {
         std::cout << "FragTrap " << this->getName() << " is already dead and cannot attack!" << std::endl;
+        return;
+    }
+    if (this->getEnergyPoints() <= 0)
+    {
+        std::cout << "FragTrap " << this->getName() << " has no energy points left to attack!" << std::endl;
         return;
     }
     std::cout << "FragTrap " << this->getName() << " attacks " << target 
