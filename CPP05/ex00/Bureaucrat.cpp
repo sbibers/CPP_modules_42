@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 13:13:49 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/11 15:01:38 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/11 15:13:14 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ Bureaucrat::Bureaucrat(const std::string &name, const int grade) : name(name)
     try
     {
         if (grade > 150)
-            throw GradeTooHighException();
-        else if (grade < 1)
             throw GradeTooLowException();
+        else if (grade < 1)
+            throw GradeTooHighException();
         std::cout << "Parametrize constructor called\n";
         this->grade = grade;
     }
@@ -66,7 +66,7 @@ void Bureaucrat::setGrade(const int grade)
     try
     {
         if (grade < 1)
-            throw GradeTooLowException();
+            throw GradeTooHighException();
         else if (grade > 150)
             throw GradeTooHighException();
         this->grade = grade;
@@ -94,7 +94,7 @@ void Bureaucrat::increment_grade()
     try
     {
         if (this->grade + 1 > 150)
-            throw GradeTooHighException();
+            throw GradeTooLowException();
         this->grade++;
     }
     catch (const std::exception &e)
