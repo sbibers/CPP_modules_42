@@ -3,29 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbibers <sbibers@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/11 15:19:05 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/11 17:10:50 by sbibers          ###   ########.fr       */
+/*   Created: 2025/05/12 13:51:22 by sbibers           #+#    #+#             */
+/*   Updated: 2025/05/12 14:36:18 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form() : name("default name in Form class"), is_signed(false), grade_to_sign(27), grade_to_execute(27)
+const char *Form::GradeTooHighException::what() const throw()
 {
-    std::cout << "Form default constructor called\n";
+    return ("Form : Exception, Grade Too High!");
 }
 
-Form::Form(const std::string &name, const int grade_to_sign, const int grade_to_execute)
-: name(name), grade_to_sign(grade_to_sign), grade_to_execute(grade_to_execute) 
+const char *Form::GradeTooLowException::what() const throw()
 {
+    return ("Form : Exception, Grade Too Low!");
+}
+
+Form::Form() : name("default name"), grade_to_sign(10), grade_to_execute(20)
+{
+    std::cout << "Form default constructor called, name = default name, is_signed = false, grade_to_sign = 10, grade_to_execute = 20\n";
     this->is_signed = false;
-    std::cout << "Form paramterize constructor called\n";
-    if (this->grade_to_sign > 150 || this->grade_to_execute > 150)
-        throw Form::GradeTooLowException();
-    else if (this->grade_to_sign < 1 || this->grade_to_execute < 1)
+}
+
+Form::Form(std::string name, const int grade_to_sign, const int grade_to_execute)
+: name(name), grade_to_sign(grade_to_sign), grade_to_execute(grade_to_execute)
+{
+    if (grade_to_sign < 1 || grade_to_execute < 1)
         throw Form::GradeTooHighException();
+    else if (grade_to_sign > 150 || grade_to_execute > 150)
+        throw Form::GradeTooLowException();
+    std::cout << "Form paramterize constructor called\n";
+    this->is_signed = false;
 }
 
 Form::~Form()
@@ -33,15 +44,16 @@ Form::~Form()
     std::cout << "Form destructor called\n";
 }
 
-Form::Form(const Form &copy) : name(copy.name), is_signed(copy.is_signed), grade_to_sign(copy.grade_to_sign), grade_to_execute(copy.grade_to_execute)
+Form::Form(const Form &copy) : name(copy.name), is_signed(copy.is_signed)
+, grade_to_sign(copy.grade_to_sign), grade_to_execute(copy.grade_to_execute)
 {
     std::cout << "Form copy constructor called\n";
 }
 
 Form &Form::operator=(const Form &copy)
 {
-    std::cout << "Form copy assignment operator called\n";
     this->is_signed = copy.is_signed;
+    std::cout << "Form copy assignment operator called\n";
     return (*this);
 }
 
@@ -63,16 +75,6 @@ int Form::getGradeToSign() const
 int Form::getGradeToExecute() const
 {
     return (this->grade_to_execute);
-}
-
-const char *Form::GradeTooHighException::what() const throw()
-{
-    return ("Form : Grade Too High Exception");    
-}
-
-const char *Form::GradeTooLowException::what() const throw()
-{
-    return ("Form : Grade Too Low Exception");
 }
 
 void Form::beSigned(const Bureaucrat &bureaucrat)

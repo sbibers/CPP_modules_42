@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbibers <sbibers@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 12:38:08 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/11 17:10:47 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/12 14:13:23 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,27 +26,27 @@ class Bureaucrat
         int grade;
     public:
         Bureaucrat();
-        Bureaucrat(const std::string &name, const int grade);
+        Bureaucrat(std::string name, int grade);
         ~Bureaucrat();
         Bureaucrat(const Bureaucrat &copy);
         Bureaucrat &operator=(const Bureaucrat &copy);
-        int getGrade() const;
         const std::string &getName() const;
+        int getGrade() const;
         void increment_grade();
         void decrement_grade();
         void signForm(Form &form);
-        class GradeTooHighException : public std::exception
+        class GradeTooHighException : public std::exception // class exception inherit from std::exception.
         {
             public:
-                const char *what() const throw();
+                const char *what() const throw(); // function override take the message of the error.
         };
-        class GradeTooLowException : public std::exception
+        class GradeTooLowException : public std::exception // class exception inherit from std::exception.
         {
             public:
-                const char *what() const throw();
+                const char *what() const throw(); // function override take the message of the error.
         };
 };
 
-std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj);
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj); // overload for << operator.
 
 #endif

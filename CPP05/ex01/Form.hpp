@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbibers <sbibers@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/11 15:03:17 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/11 16:07:53 by sbibers          ###   ########.fr       */
+/*   Created: 2025/05/12 13:44:49 by sbibers           #+#    #+#             */
+/*   Updated: 2025/05/12 14:20:30 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Form
         const int grade_to_execute;
     public:
         Form();
-        Form(const std::string &name, const int grade_to_sign, const int grade_to_execute);
+        Form(std::string name, const int grade_to_sign, const int grade_to_execute);
         ~Form();
         Form(const Form &copy);
         Form &operator=(const Form &copy);

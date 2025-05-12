@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbibers <sbibers@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 12:31:50 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/11 17:10:48 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/12 14:42:01 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ int main()
     try
     {
         Bureaucrat b1("TooHigh", 0);
-        std::cout << b1.getGrade();
-        std::cout << b1.getName() << std::endl;
+        std::cout << b1 << std::endl;
     }
     catch (const std::exception &e)
     {
         std::cerr << e.what() << std::endl;
     }
+    std::cout << "-------------------------\n";
     try
     {
         Bureaucrat b2("TooLow", 200);
@@ -45,8 +45,9 @@ int main()
     try
     {
         Form f1("InvalidForm1", 3, 50);
+        test.signForm(f1);
         f1.beSigned(test);
-        std::cout << (bool)f1.getIsSigned() << std::endl;
+        std::cout << f1;
     }
     catch (const std::exception &e)
     {
@@ -65,14 +66,12 @@ int main()
     Bureaucrat b4("Boss", 1);
     Form f3("hahaha", 5, 10);
     std::cout << f3;
-    std::cout << "-------------------------\n";
     b4.signForm(f3);
     std::cout << f3;
     std::cout << "-------------------------\n";
     Bureaucrat b5("Messi", 150);
     Form f4("Ronlado", 100, 120);
     std::cout << f4;
-    std::cout << "-------------------------\n";
     b5.signForm(f4);
     std::cout << f4;
     return (0);
