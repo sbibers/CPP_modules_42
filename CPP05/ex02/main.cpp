@@ -6,12 +6,12 @@
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 12:31:50 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/12 17:08:22 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/12 17:08:48 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 int main()
 {

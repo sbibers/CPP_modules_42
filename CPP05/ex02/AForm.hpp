@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 13:44:49 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/12 17:08:22 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/12 18:24:48 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include "Bureaucrat.hpp"
 
-class AForm
+class AForm // abstract class.
 {
     private:
         const std::string name;
@@ -25,7 +25,7 @@ class AForm
     public:
         AForm();
         AForm(std::string name, const int grade_to_sign, const int grade_to_execute);
-        ~AForm();
+        virtual ~AForm();
         AForm(const AForm &copy);
         AForm &operator=(const AForm &copy);
         const std::string &getName() const;
@@ -33,12 +33,23 @@ class AForm
         int getGradeToSign() const;
         int getGradeToExecute() const;
         void beSigned(const Bureaucrat &bureaucrat);
+        virtual void execute(Bureaucrat const &executer) const = 0; // pure virtual function;
         class GradeTooHighException : public std::exception
         {
             public:
                 const char *what() const throw();
         };
         class GradeTooLowException : public std::exception
+        {
+            public:
+                const char *what() const throw();
+        };
+        class FormNotSignedExceptiom : public std::exception
+        {
+            public:
+                const char *what() const throw();
+        };
+        class FormNotOpenFileException : public std::exception // exception for open file in function execute.
         {
             public:
                 const char *what() const throw();

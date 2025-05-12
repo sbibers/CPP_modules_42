@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 13:51:22 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/12 17:08:22 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/12 18:25:27 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 const char *AForm::GradeTooHighException::what() const throw()
 {
@@ -20,6 +20,11 @@ const char *AForm::GradeTooHighException::what() const throw()
 const char *AForm::GradeTooLowException::what() const throw()
 {
     return ("Form : Exception, Grade Too Low!");
+}
+
+const char *AForm::FormNotSignedExceptiom::what() const throw()
+{
+    return ("Form : Exception, Form Not Signed!");
 }
 
 AForm::AForm() : name("default name"), grade_to_sign(10), grade_to_execute(20)

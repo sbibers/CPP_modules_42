@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 12:38:08 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/12 17:08:22 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/12 18:24:46 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ class Bureaucrat
         void increment_grade();
         void decrement_grade();
         void signForm(AForm &form);
+        void executeForm(AForm const & form) const;
         class GradeTooHighException : public std::exception // class exception inherit from std::exception.
         {
             public:
