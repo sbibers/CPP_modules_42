@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 17:09:50 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/12 17:39:32 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/13 19:05:56 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ class ShrubberyCreationForm : public AForm
         ShrubberyCreationForm(const ShrubberyCreationForm &copy);
         ShrubberyCreationForm &operator=(const ShrubberyCreationForm &copy);
         virtual void execute(Bureaucrat const &executer) const;
+        void writeAscciTree() const;
 };
+
 
 #endif
