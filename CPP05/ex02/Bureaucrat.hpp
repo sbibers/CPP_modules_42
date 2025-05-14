@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 12:38:08 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/12 18:24:46 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/14 12:42:03 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <ctime>
 
 class AForm;
 

@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/12 17:09:50 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/14 12:34:32 by sbibers          ###   ########.fr       */
+/*   Created: 2025/05/14 12:25:10 by sbibers           #+#    #+#             */
+/*   Updated: 2025/05/14 12:44:52 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-#define SHRUBBERYCREATIONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
-#include <fstream>
-#include <dirent.h>
-#include <string.h>
 
-class ShrubberyCreationForm : public AForm
+class RobotomyRequestForm : public AForm
 {
     private:
         std::string target;
     public:
-        ShrubberyCreationForm(std::string const &target);
-        virtual ~ShrubberyCreationForm();
-        ShrubberyCreationForm(const ShrubberyCreationForm &copy);
-        ShrubberyCreationForm &operator=(const ShrubberyCreationForm &copy);
+        RobotomyRequestForm(std::string const &target);
+        virtual ~RobotomyRequestForm();
+        RobotomyRequestForm(const RobotomyRequestForm &copy);
+        RobotomyRequestForm &operator=(const RobotomyRequestForm &copy);
         void execute(Bureaucrat const &executer) const;
-        void writeAsciiTree() const;
+        void drilling_noises() const;
 };
-
 
 #endif
