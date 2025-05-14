@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 12:51:19 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/14 19:02:05 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/14 19:00:12 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class PresidentialPardonForm : public AForm
     private:
         std::string target;
     public:
-        PresidentialPardonForm(const std::string &target);
+        PresidentialPardonForm(std::string const &target);
         ~PresidentialPardonForm();
         PresidentialPardonForm(const PresidentialPardonForm &copy);
         PresidentialPardonForm &operator=(const PresidentialPardonForm &copy);

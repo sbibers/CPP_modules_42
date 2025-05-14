@@ -6,13 +6,13 @@
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 12:54:36 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/14 19:02:08 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/14 19:00:58 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string &target)
+PresidentialPardonForm::PresidentialPardonForm(std::string const &target)
     : AForm("PresidentialPardonForm", 25, 5), target(target)
 {
     std::cout << "PresidentialPardonForm parameterize constructor called\n";

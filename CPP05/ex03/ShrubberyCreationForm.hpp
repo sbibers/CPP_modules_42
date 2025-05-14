@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/14 12:51:19 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/14 19:02:05 by sbibers          ###   ########.fr       */
+/*   Created: 2025/05/12 17:09:50 by sbibers           #+#    #+#             */
+/*   Updated: 2025/05/14 12:34:32 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIALPARDONFORM
-#define PRESIDENTIALPARDONFORM
+#ifndef SHRUBBERYCREATIONFORM_HPP
+#define SHRUBBERYCREATIONFORM_HPP
 
 #include "AForm.hpp"
+#include <fstream>
+#include <dirent.h>
+#include <string.h>
 
-class PresidentialPardonForm : public AForm
+class ShrubberyCreationForm : public AForm
 {
     private:
         std::string target;
     public:
-        PresidentialPardonForm(const std::string &target);
-        ~PresidentialPardonForm();
-        PresidentialPardonForm(const PresidentialPardonForm &copy);
-        PresidentialPardonForm &operator=(const PresidentialPardonForm &copy);
+        ShrubberyCreationForm(std::string const &target);
+        virtual ~ShrubberyCreationForm();
+        ShrubberyCreationForm(const ShrubberyCreationForm &copy);
+        ShrubberyCreationForm &operator=(const ShrubberyCreationForm &copy);
         void execute(Bureaucrat const &executer) const;
+        void writeAsciiTree() const;
 };
+
 
 #endif

@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/14 12:51:19 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/14 19:02:05 by sbibers          ###   ########.fr       */
+/*   Created: 2025/05/14 12:25:10 by sbibers           #+#    #+#             */
+/*   Updated: 2025/05/14 12:44:52 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIALPARDONFORM
-#define PRESIDENTIALPARDONFORM
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
 
-class PresidentialPardonForm : public AForm
+class RobotomyRequestForm : public AForm
 {
     private:
         std::string target;
     public:
-        PresidentialPardonForm(const std::string &target);
-        ~PresidentialPardonForm();
-        PresidentialPardonForm(const PresidentialPardonForm &copy);
-        PresidentialPardonForm &operator=(const PresidentialPardonForm &copy);
+        RobotomyRequestForm(std::string const &target);
+        virtual ~RobotomyRequestForm();
+        RobotomyRequestForm(const RobotomyRequestForm &copy);
+        RobotomyRequestForm &operator=(const RobotomyRequestForm &copy);
         void execute(Bureaucrat const &executer) const;
+        void drilling_noises() const;
 };
 
 #endif
