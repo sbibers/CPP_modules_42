@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 13:51:22 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/12 18:25:27 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/14 11:54:04 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,16 @@ const char *AForm::GradeTooLowException::what() const throw()
 const char *AForm::FormNotSignedExceptiom::what() const throw()
 {
     return ("Form : Exception, Form Not Signed!");
+}
+
+const char *AForm::FormCanNotOpenFileException::what() const throw()
+{
+    return ("Form : Exception, Form Can Not Open File!");
+}
+
+const char *AForm::FormCanNotWriteOnFile::what() const throw()
+{
+    return ("Form : Exception, Form Can Not Write On File!");
 }
 
 AForm::AForm() : name("default name"), grade_to_sign(10), grade_to_execute(20)
@@ -50,7 +60,7 @@ AForm::~AForm()
 }
 
 AForm::AForm(const AForm &copy) : name(copy.name), is_signed(copy.is_signed)
-, grade_to_sign(copy.grade_to_sign), grade_to_execute(copy.grade_to_execute)
+    , grade_to_sign(copy.grade_to_sign), grade_to_execute(copy.grade_to_execute)
 {
     std::cout << "Form copy constructor called\n";
 }

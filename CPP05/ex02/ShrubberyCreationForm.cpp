@@ -6,14 +6,11 @@
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 17:18:45 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/13 19:20:25 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/14 12:17:49 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
-#include <fstream>
-#include <dirent.h>
-#include <string.h>
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target)
 : AForm("ShrubberyCreationForm", 145, 137), target(target)
@@ -39,34 +36,44 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
     return (*this);
 }
 
+int check_name(struct dirent *entry)
+{
+    if (strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0)
+        return (1);
+    return (0);
+}
+
 void ShrubberyCreationForm::writeAscciTree() const
 {
     try
     {
-        std::ofstream outfile((this->target + "_shrubbery").c_str());
-        if (!outfile.is_open())
-            throw std::runtime_error("Error: Could not open the output file.");
+        std::ofstream out_file((this->target + "_shrubbery").c_str());
+        if (!out_file.is_open())
+            throw AForm::FormCanNotOpenFileException();
         DIR *dir = opendir(".");
         if (dir == NULL)
-            throw std::runtime_error("Error: Could not open current directory.");
+        {
+            out_file.close();
+            throw AForm::FormCanNotOpenFileException();
+        }
         struct dirent *entry;
-        outfile << "|\n";
+        out_file << "|\n";
         while ((entry = readdir(dir)) != NULL)
         {
-            if (strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0)
+            if (check_name(entry))
             {
-                outfile << "|" << "--> ";
-                outfile << entry->d_name << std::endl;
-                if (outfile.fail())
+                out_file << "|--> ";
+                out_file << entry->d_name << std::endl;
+                if (out_file.fail())
                 {
                     closedir(dir);
-                    outfile.close();        
-                    throw std::runtime_error("Error: Writing to file failed.");
+                    out_file.close();      
+                    throw AForm::FormCanNotWriteOnFile();
                 }
             }
         }
         closedir(dir);
-        outfile.close();
+        out_file.close();
     }
     catch (const std::exception &e)
     {

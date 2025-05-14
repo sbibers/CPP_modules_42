@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 17:09:50 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/13 19:05:56 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/14 11:40:27 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 #define SHRUBBERYCREATIONFORM_HPP
 
 #include "AForm.hpp"
-#include <ostream>
+#include <fstream>
+#include <dirent.h>
+#include <string.h>
 
 class ShrubberyCreationForm : public AForm
 {

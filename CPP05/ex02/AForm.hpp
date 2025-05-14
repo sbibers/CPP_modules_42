@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 13:44:49 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/12 18:24:48 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/14 11:39:36 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,16 @@ class AForm // abstract class.
                 const char *what() const throw();
         };
         class FormNotOpenFileException : public std::exception // exception for open file in function execute.
+        {
+            public:
+                const char *what() const throw();
+        };
+        class FormCanNotOpenFileException : public std::exception
+        {
+            public:
+                const char *what() const throw();
+        };
+        class FormCanNotWriteOnFile : public std::exception
         {
             public:
                 const char *what() const throw();
