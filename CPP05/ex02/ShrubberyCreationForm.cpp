@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 17:18:45 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/14 12:17:49 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/14 12:21:27 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int check_name(struct dirent *entry)
     return (0);
 }
 
-void ShrubberyCreationForm::writeAscciTree() const
+void ShrubberyCreationForm::writeAsciiTree() const
 {
     try
     {
@@ -87,5 +87,5 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executer) const
         throw AForm::FormNotSignedExceptiom();
     if (executer.getGrade() > this->getGradeToExecute())
         throw AForm::GradeTooLowException();
-    this->writeAscciTree();
+    this->writeAsciiTree();
 }
