@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 17:18:45 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/14 18:41:03 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/15 15:00:31 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,17 @@ void ShrubberyCreationForm::writeAsciiTree() const
         }
         struct dirent *entry;
         out_file << "|\n";
+        if (out_file.fail())
+        {
+            closedir(dir);
+            out_file.close();      
+            throw AForm::FormCanNotWriteOnFile();
+        }
         while ((entry = readdir(dir)) != NULL)
         {
             if (check_name(entry))
             {
-                out_file << "|--> ";
-                out_file << entry->d_name << std::endl;
+                out_file << "|--> " << entry->d_name << std::endl;
                 if (out_file.fail())
                 {
                     closedir(dir);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 12:54:36 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/14 19:02:08 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/15 15:24:42 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,5 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 void PresidentialPardonForm::execute(Bureaucrat const &executer) const
 {
     (void)executer;
-    std::cout << this->target << "has been pardoned by Zaphod Beeblebrox.\n";
+    std::cout << this->target << " has been pardoned by Zaphod Beeblebrox.\n";
 }

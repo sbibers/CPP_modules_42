@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 13:13:49 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/12 13:29:56 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/15 12:41:35 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "Bureaucrat.hpp"
 
 #include "Bureaucrat.hpp"
 
@@ -36,7 +34,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
     else if (grade > 150)
         throw Bureaucrat::GradeTooLowException();
     this->grade = grade;
-    std::cout << "Bureaucrat paramterize constructor called\n";
+    std::cout << "Bureaucrat parametrize constructor called\n";
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : name(copy.name), grade(copy.grade)
@@ -82,6 +80,6 @@ void Bureaucrat::decrement_grade()
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj)
 {
-    out << obj.getName() << ", Bureaucrat Grade : " << obj.getGrade();
+    out << obj.getName() << " bureaucrat grade " << obj.getGrade();
     return (out);
 }
