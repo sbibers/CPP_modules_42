@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 13:13:49 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/15 12:41:35 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/17 10:32:37 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
         throw Bureaucrat::GradeTooHighException(); // throw will stop the try block and put the message of exception on a catch in main function.
     else if (grade > 150)
         throw Bureaucrat::GradeTooLowException();
-    this->grade = grade;
     std::cout << "Bureaucrat parametrize constructor called\n";
+    this->grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : name(copy.name), grade(copy.grade)

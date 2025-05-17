@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 12:38:08 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/15 12:20:34 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/17 10:31:16 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ class Bureaucrat
         };
 };
 
-std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj); // overload for << operator.
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj);
 
 #endif
