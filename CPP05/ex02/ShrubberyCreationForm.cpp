@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 17:18:45 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/15 15:00:31 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/17 10:42:23 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target)
-: AForm("ShrubberyCreationForm", 145, 137), target(target)
+: Form("ShrubberyCreationForm", 145, 137), target(target)
 {   
     std::cout << "ShrubberyCreationForm paramterize constructor called\n";
 }
@@ -23,7 +23,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
     std::cout << "ShrubberyCreationForm destructor called\n";
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : AForm(copy), target(copy.target)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : Form(copy), target(copy.target)
 {
     std::cout << "ShrubberyCreationForm copy constructor called\n";
 }
@@ -31,7 +31,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &copy)
 {
     std::cout << "ShrubberyCreationForm copy assignment operator called\n";
-    AForm::operator=(copy);
+    Form::operator=(copy);
     this->target = copy.target;
     return (*this);
 }
@@ -49,12 +49,12 @@ void ShrubberyCreationForm::writeAsciiTree() const
     {
         std::ofstream out_file((this->target + "_shrubbery").c_str());
         if (!out_file.is_open())
-            throw AForm::FormCanNotOpenFileException();
+            throw Form::FormCanNotOpenFileException();
         DIR *dir = opendir(".");
         if (dir == NULL)
         {
             out_file.close();
-            throw AForm::FormCanNotOpenFileException();
+            throw Form::FormCanNotOpenFileException();
         }
         struct dirent *entry;
         out_file << "|\n";
@@ -62,7 +62,7 @@ void ShrubberyCreationForm::writeAsciiTree() const
         {
             closedir(dir);
             out_file.close();      
-            throw AForm::FormCanNotWriteOnFile();
+            throw Form::FormCanNotWriteOnFile();
         }
         while ((entry = readdir(dir)) != NULL)
         {
@@ -73,7 +73,7 @@ void ShrubberyCreationForm::writeAsciiTree() const
                 {
                     closedir(dir);
                     out_file.close();      
-                    throw AForm::FormCanNotWriteOnFile();
+                    throw Form::FormCanNotWriteOnFile();
                 }
             }
         }
@@ -89,8 +89,8 @@ void ShrubberyCreationForm::writeAsciiTree() const
 void ShrubberyCreationForm::execute(Bureaucrat const &executer) const
 {
     if (!this->getIsSigned())
-        throw AForm::FormNotSignedExceptiom();
+        throw Form::FormNotSignedExceptiom();
     if (executer.getGrade() > this->getGradeToExecute())
-        throw AForm::GradeTooLowException();
+        throw Form::GradeTooLowException();
     this->writeAsciiTree();
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 13:44:49 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/15 14:42:44 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/17 10:35:58 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "Bureaucrat.hpp"
 
-class AForm // abstract class.
+class Form // abstract class.
 {
     private:
         const std::string name;
@@ -23,11 +23,11 @@ class AForm // abstract class.
         const int grade_to_sign;
         const int grade_to_execute;
     public:
-        AForm();
-        AForm(std::string name, const int grade_to_sign, const int grade_to_execute);
-        virtual ~AForm();
-        AForm(const AForm &copy);
-        AForm &operator=(const AForm &copy);
+        Form();
+        Form(std::string name, const int grade_to_sign, const int grade_to_execute);
+        virtual ~Form();
+        Form(const Form &copy);
+        Form &operator=(const Form &copy);
         const std::string &getName() const;
         bool getIsSigned() const;
         int getGradeToSign() const;
@@ -66,6 +66,6 @@ class AForm // abstract class.
         };
 };
 
-std::ostream &operator<<(std::ostream &out, const AForm &obj);
+std::ostream &operator<<(std::ostream &out, const Form &obj);
 
 #endif
