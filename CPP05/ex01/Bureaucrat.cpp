@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 13:13:49 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/15 14:42:42 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/17 10:38:14 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void Bureaucrat::decrement_grade()
     this->grade++;
 }
 
-void Bureaucrat::signForm(AForm &form)
+void Bureaucrat::signForm(Form &form)
 {
     if (form.getIsSigned())
     {

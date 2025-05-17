@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 12:31:50 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/15 14:42:42 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/17 10:39:28 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int main()
     Bureaucrat test("TooHigh", 2);
     try
     {
-        AForm f1("InvalidForm1", 3, 50);
+        Form f1("InvalidForm1", 3, 50);
         test.signForm(f1);
         f1.beSigned(test);
         std::cout << f1;
@@ -56,7 +56,7 @@ int main()
     std::cout << "-------------------------\n";
     try
     {
-        AForm f2("InvalidForm2", 10, 200);
+        Form f2("InvalidForm2", 10, 200);
     }
     catch (const std::exception &e)
     {
@@ -64,13 +64,13 @@ int main()
     }
     std::cout << "-------------------------\n";
     Bureaucrat b4("Boss", 1);
-    AForm f3("hahaha", 5, 10);
+    Form f3("hahaha", 5, 10);
     std::cout << f3;
     b4.signForm(f3);
     std::cout << f3;
     std::cout << "-------------------------\n";
     Bureaucrat b5("Messi", 150);
-    AForm f4("Ronlado", 100, 120);
+    Form f4("Ronlado", 100, 120);
     std::cout << f4;
     b5.signForm(f4);
     std::cout << f4;
