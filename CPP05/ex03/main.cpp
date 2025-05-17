@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 12:31:50 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/15 15:39:04 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/17 10:50:18 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ int main()
     Intern a;
     try
     {
-        a.makeForm("Robotomy Request", "salam");
+        AForm *b = a.makeForm("Robotomy Request", "salam");
+        std::cout << b->getName() << std::endl;
+        delete b;
     }
     catch (const std::exception &e)
     {

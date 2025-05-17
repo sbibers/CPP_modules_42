@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 18:32:14 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/15 14:42:42 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/17 10:50:04 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,5 @@ AForm *Intern::makeForm(const std::string &form_name, const std::string &target)
         std::cout << form_name << " : " << e.what() << std::endl;
     }
     std::cout << form_name << " : Intern Create Done :)\n";
-    delete form;
     return (form);
 }
