@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 13:13:49 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/17 10:35:58 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/17 10:46:06 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void Bureaucrat::decrement_grade()
     this->grade++;
 }
 
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(AForm &form)
 {
     if (form.getIsSigned())
     {
@@ -97,7 +97,7 @@ void Bureaucrat::signForm(Form &form)
     }
 }
 
-void Bureaucrat::executeForm(Form const &form) const
+void Bureaucrat::executeForm(AForm const &form) const
 {
     try
     {

@@ -6,14 +6,14 @@
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 12:54:36 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/17 10:43:05 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/17 10:46:06 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string &target)
-    : Form("PresidentialPardonForm", 25, 5), target(target)
+    : AForm("PresidentialPardonForm", 25, 5), target(target)
 {
     std::cout << "PresidentialPardonForm parameterize constructor called\n";
 }
@@ -23,7 +23,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
     std::cout << "PresidentialPardonForm destructor called\n";
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy) : Form(copy), target(copy.target)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy) : AForm(copy), target(copy.target)
 {
     std::cout << "PresidentialPardonForm copy constructor called\n";
 }
@@ -31,7 +31,7 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &cop
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &copy)
 {
     std::cout << "PresidentialPardonForm copy assignment operator called\n";
-    Form::operator=(copy);
+    AForm::operator=(copy);
     this->target = copy.target;
     return (*this);
 }

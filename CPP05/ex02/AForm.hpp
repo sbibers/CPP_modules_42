@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 13:44:49 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/17 10:35:58 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/17 10:46:07 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "Bureaucrat.hpp"
 
-class Form // abstract class.
+class AForm // abstract class.
 {
     private:
         const std::string name;
@@ -23,11 +23,11 @@ class Form // abstract class.
         const int grade_to_sign;
         const int grade_to_execute;
     public:
-        Form();
-        Form(std::string name, const int grade_to_sign, const int grade_to_execute);
-        virtual ~Form();
-        Form(const Form &copy);
-        Form &operator=(const Form &copy);
+        AForm();
+        AForm(std::string name, const int grade_to_sign, const int grade_to_execute);
+        virtual ~AForm();
+        AForm(const AForm &copy);
+        AForm &operator=(const AForm &copy);
         const std::string &getName() const;
         bool getIsSigned() const;
         int getGradeToSign() const;
@@ -66,6 +66,6 @@ class Form // abstract class.
         };
 };
 
-std::ostream &operator<<(std::ostream &out, const Form &obj);
+std::ostream &operator<<(std::ostream &out, const AForm &obj);
 
 #endif
