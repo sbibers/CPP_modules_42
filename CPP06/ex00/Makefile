@@ -1,10 +1,13 @@
 NAME = convert
 
 CPP = c++
+
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp ScalarConverter.cpp check_type.cpp
+SRC = main.cpp ScalarConverter.cpp check_type.cpp convert_type.cpp
+
 OBJ_DIR = obj
+
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
 all: $(NAME)

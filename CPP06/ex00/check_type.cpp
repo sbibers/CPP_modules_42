@@ -6,13 +6,13 @@
 /*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:27:25 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/23 18:36:52 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/23 20:01:02 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-bool is_special(const std::string &str)
+static bool is_special(const std::string &str)
 {
     return (str == "nan" || str == "nanf" || str == "+inf" || str == "+inff" || str == "-inf" || str == "-inff");
 }
@@ -57,26 +57,6 @@ static bool is_float(const std::string &str, size_t &length, size_t &dot)
             return (false);
         if (str[i] == 'f' && i != length - 1)
             return (false);
-    }
-    return (true);
-}
-
-bool check_input(const std::string &str, size_t &length)
-{
-    size_t i = 0;
-
-    if (length == 3)
-        return (true);
-    if (length > 1)
-    {
-        while (i < length)
-        {
-            if (!isdigit(str[i]) && str[i] != '.'
-                && str[i] != 'f' && str[i] != '+'
-                && str[i] != '-' && str[i] != '\'')
-                return (false);
-            i++;
-        }
     }
     return (true);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbibers <sbibers@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 15:47:17 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/23 19:44:22 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/23 20:01:07 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,9 @@ class ScalarConverter
 };
 
 type_of which_type(const std::string &str, size_t &length);
-bool check_input(const std::string &str, size_t &length);
-bool is_special(const std::string &str);
+void convert_double(const std::string &str);
+void convert_float(const std::string &str);
+void convert_int(const std::string &str);
+void convert_char(const std::string &str, size_t &length);
 
 #endif
