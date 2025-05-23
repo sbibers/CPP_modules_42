@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/22 15:16:03 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/22 15:56:23 by sbibers          ###   ########.fr       */
+/*   Created: 2025/05/23 15:47:17 by sbibers           #+#    #+#             */
+/*   Updated: 2025/05/23 19:44:22 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,47 @@
 #define SCALARCONVERTER_HPP
 
 #include <iostream>
-#include <string>
+#include <iomanip>
+#include <exception>
 #include <cstdlib>
 #include <limits>
+#include <cmath>
 
-enum type
+#define INT_MIN std::numeric_limits<int>::min()
+#define INT_MAX std::numeric_limits<int>::max()
+#define FLOAT_MIN std::numeric_limits<float>::min()
+#define FLOAT_MAX std::numeric_limits<float>::max()
+#define DOUBLE_MIN std::numeric_limits<double>::min()
+#define DOUBLE_MAX std::numeric_limits<double>::max()
+
+enum type_of
 {
+    INVALID = -1,
+    SPECIAL = 0,
     CHAR = 1,
     INT = 2,
     FLOAT = 3,
-    DOUBLE = 4,
-    INVALID = -1
+    DOUBLE = 4
 };
 
 class ScalarConverter
 {
     private:
         ScalarConverter();
+        ScalarConverter(const ScalarConverter &obj);
         ~ScalarConverter();
-        ScalarConverter(const ScalarConverter &);
-        ScalarConverter &operator=(const ScalarConverter &);
+        ScalarConverter &operator=(const ScalarConverter &obj);
     public:
-        static void converter(const std::string &str);
+        static void convert(const std::string &str);
+        class ScalarConverterErrorConvertException : public std::exception
+        {
+            public:
+                const char *what() const throw();
+        };
 };
 
-type find_type(const std::string &str, size_t &length);
-void convert_char(const std::string &str, size_t &length);
-void convert_int(const std::string &str);
-void convert_float(const std::string &str);
-void convert_double(const std::string &str);
+type_of which_type(const std::string &str, size_t &length);
+bool check_input(const std::string &str, size_t &length);
+bool is_special(const std::string &str);
 
 #endif
