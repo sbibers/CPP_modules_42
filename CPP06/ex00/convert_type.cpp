@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 19:56:21 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/23 20:00:16 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/24 15:30:26 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void convert_float(const std::string &str)
     else
         std::cout << static_cast<int>(num) << std::endl;
     std::cout << "float: ";
-    if (num < FLOAT_MIN || num > FLOAT_MAX)
+    if (num < -FLOAT_MAX || static_cast<float>(num) > FLOAT_MAX)
         std::cout << "impossible\n";
     else
     {
@@ -131,7 +131,7 @@ void convert_double(const std::string &str)
     else
     {
         if (isprint(num))
-            std::cout << "'" << static_cast<char>(num) << std::endl;
+            std::cout << "'" << static_cast<char>(num) << "'" << std::endl;
         else
             std::cout << "Non displayable\n";
     }
@@ -141,17 +141,17 @@ void convert_double(const std::string &str)
     else
         std::cout << static_cast<int>(num) << std::endl;
     std::cout << "float: ";
-    if (num < FLOAT_MIN || num > FLOAT_MAX)
+    if (num < -FLOAT_MAX || num > FLOAT_MAX)
         std::cout << "impossible\n";
     else
     {
         if (flag)
             std::cout << static_cast<float>(num) << ".0f\n";
         else
-            std::cout << static_cast<float>(num) << ".f\n";
+            std::cout << static_cast<float>(num) << "f\n";
     }
     std::cout << "double: ";
-    if (num < DOUBLE_MIN || num > DOUBLE_MAX)
+    if (num < -DOUBLE_MAX || num > DOUBLE_MAX)
         std::cout << "impossible\n";
     else
         std::cout << num << std::endl;

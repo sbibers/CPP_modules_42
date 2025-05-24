@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 15:47:17 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/23 20:01:07 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/24 15:30:47 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@
 
 #define INT_MIN std::numeric_limits<int>::min()
 #define INT_MAX std::numeric_limits<int>::max()
-#define FLOAT_MIN std::numeric_limits<float>::min()
 #define FLOAT_MAX std::numeric_limits<float>::max()
-#define DOUBLE_MIN std::numeric_limits<double>::min()
 #define DOUBLE_MAX std::numeric_limits<double>::max()
 
 enum type_of
