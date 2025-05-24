@@ -1,10 +1,10 @@
-NAME = ex01
+NAME = ex02
 
 CPP = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp Serialization.cpp
+SRC = main.cpp
 
 OBJ_DIR = obj
 
