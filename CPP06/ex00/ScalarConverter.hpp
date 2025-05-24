@@ -25,6 +25,10 @@
 #define FLOAT_MAX std::numeric_limits<float>::max()
 #define DOUBLE_MAX std::numeric_limits<double>::max()
 
+// static cast : covert from a data type to another data type, in a compile-time, the convert from type to another type must be logical and known to the compiler, int <---> float, if can not casting -> undefined behavior
+
+// dynamic cast : to convert from pointers and reference and inheritance, convert from base class to drived class, if can not casting it is return nullptr, the cast in a run-time
+
 enum type_of
 {
     INVALID = -1,
