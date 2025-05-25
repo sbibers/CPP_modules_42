@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 15:47:17 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/24 15:30:47 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/25 14:49:17 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,6 @@ class ScalarConverter
         ScalarConverter &operator=(const ScalarConverter &obj);
     public:
         static void convert(const std::string &str);
-        class ScalarConverterErrorConvertException : public std::exception
-        {
-            public:
-                const char *what() const throw();
-        };
 };
 
 type_of which_type(const std::string &str, size_t &length);

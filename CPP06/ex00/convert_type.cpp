@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 19:56:21 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/24 15:30:26 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/25 14:50:05 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,7 @@ void convert_char(const std::string &str, size_t &length)
 
 void convert_int(const std::string &str)
 {
-    long num;
-    try
-    {
-        num = std::atol(str.c_str());
-    }
-    catch (const ScalarConverter::ScalarConverterErrorConvertException &e)
-    {
-        std::cout << e.what() << std::endl;
-        return;
-    }
+    long num = std::atol(str.c_str());
     std::cout << "char: ";
     if (num > 127 || num < 0)
         std::cout << "impossible\n";
@@ -69,16 +60,7 @@ void convert_int(const std::string &str)
 
 void convert_float(const std::string &str)
 {
-    float num;
-    try
-    {
-        num = std::atof(str.c_str());
-    }
-    catch (const ScalarConverter::ScalarConverterErrorConvertException &e)
-    {
-        std::cout << e.what() << std::endl;
-        return;
-    }
+    float num = std::atof(str.c_str());
     bool flag = std::fabs(num - static_cast<int>(num)) < 0.0000000000001;
     std::cout << "char: ";
     if (num < 0 || num > 127)
@@ -113,16 +95,7 @@ void convert_float(const std::string &str)
 
 void convert_double(const std::string &str)
 {
-    double num;
-    try
-    {
-        num = std::atof(str.c_str());
-    }
-    catch (const ScalarConverter::ScalarConverterErrorConvertException &e)
-    {
-        std::cout << e.what() << std::endl;
-        return;
-    }
+    double num = std::atof(str.c_str());
     bool flag = std::fabs(num - static_cast<int>(num)) < 0.0000000000001;
 
     std::cout << "char: ";

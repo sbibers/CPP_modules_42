@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 15:53:40 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/24 15:10:05 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/25 14:49:26 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,6 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &obj)
 {
     (void)obj;
     return (*this);
-}
-
-const char *ScalarConverter::ScalarConverterErrorConvertException::what() const throw()
-{
-    return ("ScalarConverterErrorConvertException: Error converting");
 }
 
 static void print_special(const std::string &str)
