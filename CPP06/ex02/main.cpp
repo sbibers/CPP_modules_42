@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 17:21:55 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/24 17:34:06 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/25 15:29:57 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,23 @@ Base *generate(void)
         return (new C);
 }
 
-void identify(Base *p)
+void identify(Base *p) // dynamic casting with pointers if does not cast return NULL.
 {
     if (dynamic_cast<A*>(p))
-        std::cout << "A" << std::endl;
+        std::cout << "A\n";
     else if (dynamic_cast<B*>(p))
-        std::cout << "B" << std::endl;
+        std::cout << "B\n";
     else if (dynamic_cast<C*>(p))
-        std::cout << "C" << std::endl;
+        std::cout << "C\n";
 }
 
-void identify(Base &p)
+void identify(Base &p)// dynamic casting with refernces if does not cast return throw (try, catch).
 {
     try
     {
         A &a = dynamic_cast<A&>(p);
         (void)a;
-        std::cout << "A" << std::endl;
+        std::cout << "A\n";
     }
     catch (std::exception &e)
     {}
@@ -50,7 +50,7 @@ void identify(Base &p)
     {
         B &b = dynamic_cast<B&>(p);
         (void)b;
-        std::cout << "B" << std::endl;
+        std::cout << "B\n";
     }
     catch (std::exception &e)
     {}
@@ -58,7 +58,7 @@ void identify(Base &p)
     {
         C &c = dynamic_cast<C&>(p);
         (void)c;
-        std::cout << "C" << std::endl;
+        std::cout << "C\n";
     }
     catch (std::exception &e)
     {}
