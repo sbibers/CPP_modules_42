@@ -1,4 +1,3 @@
-
 # 📖 C++ | 42Cursus Complete
 
 ## 📊 CPP Modules Progress
@@ -11,6 +10,7 @@
 | **CPP03** | Inheritance | **80** |
 | **CPP04** | Subtype polymorphism, abstract classes, interfaces | **80** |
 | **CPP05** | Exception handling, abstract classes, form execution, polymorphism | **100** |
+| **CPP06** | C++ type casting, serialization, and RTTI-free type identification | **100** |
 
 ---
 
@@ -97,7 +97,6 @@ This module introduces **exception handling, abstract classes, and form executio
 - Polymorphic function execution
 
 ### 🚀 Completed Exercises:
-
 1. **Exercise 00** — *Mommy, when I grow up, I want to be a bureaucrat!*
    - Implemented the `Bureaucrat` class.
    - Constant name and a grade (1 to 150) with increment and decrement functionality.
@@ -124,7 +123,58 @@ This module introduces **exception handling, abstract classes, and form executio
 
 ---
 
+## 📌 CPP06 - Type Conversion, Serialization, and Type Identification
+
+This module explores **C++ type casting**, memory address serialization, and identifying dynamic types without using RTTI.
+
+### 🛠 Topics Covered:
+- Scalar type conversion
+- C++ casting
+- Serialization and deserialization using `uintptr_t`
+- Type identification using inheritance and virtual functions (without `typeinfo`)
+
+### 🚀 Completed Exercises:
+1. **Exercise 00** — *Conversion of Scalar Types*
+   - Created a `ScalarConverter` class with a single static method `convert()`.
+   - Converts a string representing a C++ literal into:
+     - `char`
+     - `int`
+     - `float`
+     - `double`
+   - Handles conversions, overflows, and pseudo-literals like `nan`, `+inf`, `-inf`.
+   - Displays appropriate messages for impossible or non-displayable conversions.
+
+2. **Exercise 01** — *Serialization*
+   - Implemented a `Serializer` class with:
+     - `uintptr_t serialize(Data* ptr);` — Converts a pointer to a `uintptr_t`.
+     - `Data* deserialize(uintptr_t raw);` — Converts a `uintptr_t` back to a pointer.
+   - Created a simple `Data` structure with non-empty members.
+   - Validated serialization-deserialization correctness.
+
+3. **Exercise 02** — *Identify Real Type*
+   - Implemented a `Base` class with a virtual destructor.
+   - Created three derived classes `A`, `B`, and `C`.
+   - Wrote:
+     - `Base* generate(void);` — Randomly creates instances of `A`, `B`, or `C`.
+     - `void identify(Base* p);` — Identifies type from a pointer.
+     - `void identify(Base& p);` — Identifies type from a reference (without using pointers or `typeinfo`).
+
+---
+
 ## ⚠️ Notes:
 - All exercises follow the **C++98 standard**.
 - No external libraries are allowed.
-- **Memory leaks must be avoided** (checked with `valgrind`).
+- **Memory leaks are prevented and checked with `valgrind`**.
+- Makefiles included for each exercise directory.
+
+---
+
+## 📌 Author:
+**Salam Baybars**  
+*42 Amman Student | Computer Science Enthusiast*
+
+- 📧 [salambaybars@gmail.com](mailto:salambaybars@gmail.com)
+- 📸 [Instagram](https://www.instagram.com/salam._.baybars/)
+
+---
+

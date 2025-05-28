@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Serialization.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 15:37:42 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/24 16:45:42 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/27 16:43:33 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "Data.hpp"
 #include <stdint.h>
 
-// uintptr_t : unsigned integer pointer, store the vlaue of any pointer.
+// uintptr_t : unsigned integer pointer, store the vlaue of any pointer (decimal).
 // reinterpret_cast : to convert a pointer of some data type into a pointer of another data type.
 
 class Serialization

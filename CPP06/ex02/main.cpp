@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 17:21:55 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/25 15:29:57 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/27 16:43:56 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ Base *generate(void)
         return (new C);
 }
 
-void identify(Base *p) // dynamic casting with pointers if does not cast return NULL.
+void identify(Base *p)
+// dynamic casting with pointers if does not cast return NULL.
 {
     if (dynamic_cast<A*>(p))
         std::cout << "A\n";
@@ -36,7 +37,8 @@ void identify(Base *p) // dynamic casting with pointers if does not cast return 
         std::cout << "C\n";
 }
 
-void identify(Base &p)// dynamic casting with refernces if does not cast return throw (try, catch).
+void identify(Base &p)
+// dynamic casting with refernces if does not cast return throw (try, catch).
 {
     try
     {

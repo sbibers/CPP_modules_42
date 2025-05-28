@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_type.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 17:27:25 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/24 15:11:13 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/27 16:41:44 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ static bool is_special(const std::string &str)
     return (str == "nan" || str == "nanf" || str == "+inf" || str == "+inff" || str == "-inf" || str == "-inff");
 }
 
-static bool is_char(const std::string &str, size_t &length) // check if the input like this char -> ("'a'" or a)
+static bool is_char(const std::string &str, size_t &length)
+// check if the input like this char -> ("'a'" or a)
 {
     return ((length == 1 && !isdigit(str[0]))
         || (length == 3 && str[0] == '\'' && str[2] == '\''));
@@ -63,9 +64,9 @@ static bool is_float(const std::string &str, size_t &length, size_t &dot)
 
 type_of which_type(const std::string &str, size_t &length)
 {
-    size_t dot = str.find("."); // function (find) do not find the string in a str it is return std::string::npos (-1 or SIZE_MAX).
+    size_t dot = str.find(".");
     size_t find_f = str.find("f");
-    if (dot == std::string::npos) // std::string::npos : constant variable (do not find it).
+    if (dot == std::string::npos)
     {
         if (is_special(str))
             return (SPECIAL);
