@@ -11,6 +11,7 @@
 | **CPP04** | Subtype polymorphism, abstract classes, interfaces | **80** |
 | **CPP05** | Exception handling, abstract classes, form execution, polymorphism | **100** |
 | **CPP06** | C++ type casting, serialization, and RTTI-free type identification | **100** |
+| **CPP07** | C++ Function and Class Templates | **100** |
 
 ---
 
@@ -158,6 +159,75 @@ This module explores **C++ type casting**, memory address serialization, and ide
      - `Base* generate(void);` — Randomly creates instances of `A`, `B`, or `C`.
      - `void identify(Base* p);` — Identifies type from a pointer.
      - `void identify(Base& p);` — Identifies type from a reference (without using pointers or `typeinfo`).
+
+---
+
+## 📌 CPP07 - C++ Templates
+
+This module introduces **function templates and class templates** in C++. It teaches how to create reusable, type-independent code using templates, a foundational feature of generic programming in C++.
+
+### 🛠 Topics Covered:
+- Function templates
+- Class templates
+- Template instantiation
+- Supporting different data types with a single generic implementation
+- Handling const and non-const references in template functions
+
+### 🚀 Completed Exercises:
+
+#### 📦 Exercise 00 — *Start with a few functions*
+
+**Description:**  
+Implemented three simple function templates:
+- `swap(T& a, T& b)`
+- `min(const T& a, const T& b)`
+- `max(const T& a, const T& b)`
+
+**Features:**
+- Works with any type that supports comparison operators.
+- Functions are fully defined in the header file.
+- Tested with both `int` and `std::string` types.
+
+---
+
+#### 📦 Exercise 01 — *Iter*
+
+**Description:**  
+Implemented a function template `iter` that:
+- Takes an array’s address, its length, and a function.
+- Applies the function to each element of the array.
+- Supports both `const` and non-`const` elements.
+
+**Features:**
+- Generic and type-safe.
+- Works with any type of array and any callable (function, lambda, etc.).
+- Custom functions can take arguments by const reference or by value.
+
+**Example Use:**
+- Print each element in an array.
+- Increment or modify elements in an array.
+
+---
+
+#### 📦 Exercise 02 — *Array*
+
+**Description:**  
+Implemented a class template `Array<T>` that behaves like a simplified, type-safe, dynamic array with:
+- A default constructor.
+- A parameterized constructor accepting a size.
+- A copy constructor and assignment operator.
+- An overloaded `[]` operator for element access with bounds checking.
+- A `size()` member function returning the number of elements.
+
+**Features:**
+- Throws a custom `std::out_of_range` exception when accessing out-of-bounds elements.
+- Works with any type `T`.
+- Safe and memory-leak-free, verified with `valgrind`.
+
+**Example Use:**
+- Create an array of `int` or `std::string`.
+- Access and modify elements.
+- Handle out-of-range access gracefully with exceptions.
 
 ---
 
