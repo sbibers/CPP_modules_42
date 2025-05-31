@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 17:53:32 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/31 11:12:38 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/31 12:27:59 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,5 @@ typename T::iterator easyfind(T &container, int num)
         throw NumberDoesNotFound();
     return (it);
 }
-
 
 #endif

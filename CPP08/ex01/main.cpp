@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 19:06:51 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/30 19:27:11 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/31 12:35:02 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,14 @@ int main()
 		std::cout << e.what() << std::endl;
 	}
     std::cout << "---------------------\n";
-    
     try
 	{
-        std::cout << "shortest_span: " << span.shortest_span() << std::endl;
+		std::cout << "shortest_span: " << span.shortest_span() << std::endl;
 		std::cout << "longest_span: " << span.longest_span() << std::endl;
 	}
 	catch (const std::exception &e)
 	{
-        std::cout << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
     std::cout << "---------------------\n";
     
@@ -76,5 +75,6 @@ int main()
 	{
         std::cout << e.what() << std::endl;
 	}
+	exit(0);
     return (0);
 }
