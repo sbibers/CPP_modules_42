@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 17:53:32 by sbibers           #+#    #+#             */
-/*   Updated: 2025/05/30 18:05:52 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/05/31 11:12:38 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,14 @@
 #include <list>
 #include <vector>
 
-class NumberDoesNotFound;
+class NumberDoesNotFound : public std::exception
+{
+    public:
+        const char *what() const throw()
+        {
+            return ("The Number Does Not Inside The Containter !!!");
+        }
+};
 
 template <typename T>
 typename T::iterator easyfind(T &container, int num)
@@ -31,13 +38,5 @@ typename T::iterator easyfind(T &container, int num)
     return (it);
 }
 
-class NumberDoesNotFound : public std::exception
-{
-    public:
-        const char *what() const throw()
-        {
-            return ("The Number Does Not Inside The Containter !!!");
-        }
-};
 
 #endif
