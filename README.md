@@ -231,6 +231,41 @@ Implemented a class template `Array<T>` that behaves like a simplified, type-saf
 
 ---
 
+## 📌 CPP08 - Templated Containers, Iterators & Algorithms
+
+This module focuses on **C++ containers, iterators, and template functions/classes**. You’ll create custom container classes and utility functions, learning how to manipulate collections of data efficiently using modern C++ techniques.
+
+### 🛠 Topics Covered:
+- Function and class templates
+- Custom containers
+- Iterators and STL compatibility
+- Algorithms like `std::find`
+- Exception handling in containers
+- Iterable adaptations of non-iterable containers
+
+### 🚀 Completed Exercises:
+1. **Exercise 00** — *Easy find*
+   - Implemented a function template `easyfind()` that searches for an integer in any STL container.
+   - Returns an iterator to the first occurrence or throws an exception if not found.
+   - Custom test cases written to ensure correct behavior on different containers.
+
+2. **Exercise 01** — *Span*
+   - Created a `Span` class that can hold up to `N` integers.
+   - Methods:
+     - `addNumber()`
+     - `addNumbers()` for adding a range of numbers.
+     - `shortestSpan()` and `longestSpan()` for calculating the minimum and maximum differences.
+   - Exception handling for overflow and insufficient data.
+   - Performance tested with **10,000+ numbers**.
+
+3. **Exercise 02** — *Mutated abomination*
+   - Developed a `MutantStack` class that inherits from `std::stack`.
+   - Made it **iterable** by exposing its underlying container iterators.
+   - Preserved all `std::stack` functionalities while adding iteration.
+   - Verified compatibility with `std::list` by matching behaviors.
+
+---
+
 ## ⚠️ Notes:
 - All exercises follow the **C++98 standard**.
 - No external libraries are allowed.
