@@ -6,11 +6,26 @@
 /*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:28:46 by sbibers           #+#    #+#             */
-/*   Updated: 2025/06/06 14:39:13 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/06/06 15:52:13 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+
+const char *BitcoinExchange::CanNotOpenFile::what() const throw()
+{
+    return ("Error: Can Not Open File!!!");
+}
+
+const char *BitcoinExchange::EmptyFile::what() const throw()
+{
+    return ("Error: Empty File!!!");
+}
+
+const char *BitcoinExchange::BadData::what() const throw()
+{
+    return ("Error: Bad Data!!!");
+}
 
 BitcoinExchange::BitcoinExchange()
 {
@@ -26,7 +41,7 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &obj)
 {
     if (this != &obj)
         exchange = obj.exchange;
-    return *this;
+    return (*this);
 }
 
 BitcoinExchange::~BitcoinExchange()
@@ -45,54 +60,55 @@ static bool check_date(const std::string &date)
     return (false);
 }
 
-static std::string trim(const std::string& str)
+static std::string trim(const std::string &str)
 {
-    size_t first = str.find_first_not_of(" \t");
+    size_t first = str.find_first_not_of(" \t"); // find first index does not equal (' ', '\t').
     if (first == std::string::npos)
         return ("");
     size_t last = str.find_last_not_of(" \t");
     return (str.substr(first, (last - first + 1)));
 }
 
-static bool check_header(const std::string& line, char delimiter,
-    const std::string& expectedLeft, const std::string& expectedRight)
+static bool check_header(const std::string &line, char delimiter,
+    const std::string &expected_left, const std::string &expected_right)
 {
-    size_t delimPos = line.find(delimiter);
-    if (delimPos == std::string::npos)
+    size_t delim_pos = line.find(delimiter);
+    if (delim_pos == std::string::npos)
         return (false);
-    std::string left = trim(line.substr(0, delimPos));
-    std::string right = trim(line.substr(delimPos + 1));
-    return (left == expectedLeft && right == expectedRight);
+    std::string left = trim(line.substr(0, delim_pos));
+    std::string right = trim(line.substr(delim_pos + 1));
+    return (left == expected_left && right == expected_right);
 }
 
 void BitcoinExchange::load_data_base()
 {
     std::ifstream file("data.csv");
     if (!file.is_open())
-        throw std::runtime_error("Error: could not open database file.");
+        throw BitcoinExchange::CanNotOpenFile();
     std::string line;
-    std::getline(file, line); // Skip header
+    std::getline(file, line);
     if (line.empty())
-        throw std::runtime_error("Error: (data.csv) empty.");
-    if (!check_header(line, ',', "date", "exchange_rate")) // check_header
-        throw std::runtime_error("Error: bad header in a file (data.csv).");
+        throw BitcoinExchange::EmptyFile();
+    if (!check_header(line, ',', "date", "exchange_rate"))
+        throw BitcoinExchange::BadData();
     while (std::getline(file, line))
     {
-        std::stringstream ss(line);
-        std::string date, rate;
-        std::getline(ss, date, ',');
-        if (date.empty()) // check if date empty.
-            throw std::runtime_error("Error: bad data in file (data.csv).");
-        if (!check_date(date)) // check if date have (double (-)).
-            throw std::runtime_error("Error: bad data in file (data.csv)");
-        std::getline(ss, rate);
-        if (rate.empty()) // check if rate empty.
-            throw std::runtime_error("Error: bad data in file (data.csv).");
+        size_t pos = line.find(',');
+        if (pos == std::string::npos)
+            throw BitcoinExchange::BadData();
+        std::string date = line.substr(0, pos);
+        std::string rate = line.substr(pos + 1, line.length());
+        if (date.empty())
+            throw BitcoinExchange::BadData();
+        if (!check_date(date))
+            throw BitcoinExchange::BadData();
+        if (rate.empty())
+            throw BitcoinExchange::BadData();
         exchange[date] = std::atof(rate.c_str());
     }
 }
 
-bool BitcoinExchange::valid_date(const std::string& date) const
+bool BitcoinExchange::valid_date(const std::string &date) const
 {
     if (date.length() != 10)
         return (false);
@@ -101,7 +117,7 @@ bool BitcoinExchange::valid_date(const std::string& date) const
     int year = std::atoi(date.substr(0, 4).c_str());
     int month = std::atoi(date.substr(5, 2).c_str());
     int day = std::atoi(date.substr(8, 2).c_str());
-    if (year < 2009 || year > 2024)
+    if (year < 2009 || year > 2025)
         return (false);
     if (month < 1 || month > 12)
         return (false);
@@ -112,12 +128,13 @@ bool BitcoinExchange::valid_date(const std::string& date) const
 
 bool BitcoinExchange::valid_value(const float &value) const
 {
-    return (value >= 0 && value <= 1000);
+    return (value >= 0 && value <= 1000000);
 }
 
 float BitcoinExchange::get_close_rate(const std::string& date) const
 {
     std::map<std::string, float>::const_iterator it = exchange.lower_bound(date);
+    // --> get the first key in the map large or equal date or end if does not have it.
     if (it == exchange.begin())
         return (it->second);
     if (it == exchange.end())
@@ -127,29 +144,24 @@ float BitcoinExchange::get_close_rate(const std::string& date) const
     return ((--it)->second);
 }
 
-void BitcoinExchange::process_input_file(const std::string& filename)
+void BitcoinExchange::process_input_file(const std::string &file_name)
 {
-    std::ifstream file(filename.c_str());
+    std::ifstream file(file_name.c_str());
     if (!file.is_open())
-    {
-        std::cerr << "Error: could not open file." << std::endl;
-        return;
-    }
+        throw BitcoinExchange::CanNotOpenFile();
     std::string line;
-    std::getline(file, line); // Skip header
+    std::getline(file, line);
     if (line.empty())
-        throw std::runtime_error("Error: input file empty.");
+        throw BitcoinExchange::EmptyFile();
     if (!check_header(line, '|', "date", "value"))
-        throw std::runtime_error("Error: bad header input data file.");
+        throw BitcoinExchange::BadData();
     while (std::getline(file, line))
     {
-        std::stringstream ss(line);
-        std::string date, value;
-        std::getline(ss, date, '|');
+        size_t pos = line.find('|');
+        std::string date = line.substr(0, pos);
         if (date.empty())
-            throw std::runtime_error("Error: bad input data file.");
-        std::getline(ss, value);
-        // Trim whitespace
+            throw BitcoinExchange::BadData();
+        std::string value = line.substr(pos + 1, line.length());
         date.erase(0, date.find_first_not_of(" \t"));
         date.erase(date.find_last_not_of(" \t") + 1);
         value.erase(0, value.find_first_not_of(" \t"));
@@ -169,7 +181,7 @@ void BitcoinExchange::calculate_value(const std::string& date, const std::string
     {
         if (std::atof(value.c_str()) < 0)
             std::cerr << "Error: not a positive number." << std::endl;
-        else if (std::atof(value.c_str()) > 1000)
+        else if (std::atof(value.c_str()) > 1000000)
             std::cerr << "Error: too large a number." << std::endl;
         return;
     }
