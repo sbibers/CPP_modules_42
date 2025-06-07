@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:32:07 by sbibers           #+#    #+#             */
-/*   Updated: 2025/06/06 15:51:53 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/06/07 14:50:16 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,20 @@
 class BitcoinExchange
 {
     private:
-        std::map<std::string, float> exchange;
+        std::map<std::string, float> _map;
         bool valid_date(const std::string& date) const;
-        bool valid_value(const float &value) const;
         float get_close_rate(const std::string& date) const;
-        void load_data_base();
+        bool check_header(const std::string &line, char delimiter,
+            const std::string &expected_left, const std::string &expected_right);
+        bool check_date(const std::string &date);
     public:
         BitcoinExchange();
         BitcoinExchange(const BitcoinExchange &);
         BitcoinExchange &operator=(const BitcoinExchange &);
         ~BitcoinExchange();
-        void process_input_file(const std::string& filename);
-        void calculate_value(const std::string& date, const std::string& value);
+        void process_input_file(const std::string& file_name);
+        void calculate_value(const std::string &date, const std::string &value);
         class CanNotOpenFile : public std::exception
-        {
-            public:
-                const char *what() const throw();
-        };
-        class EmptyFile : public std::exception
         {
             public:
                 const char *what() const throw();
