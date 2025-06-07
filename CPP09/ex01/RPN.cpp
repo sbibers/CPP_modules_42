@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 17:53:38 by sbibers           #+#    #+#             */
-/*   Updated: 2025/06/06 19:11:59 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/06/07 15:44:12 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ RPN &RPN::operator=(const RPN &obj)
 RPN::~RPN()
 {}
 
-const char *RPN::WrongInput::what() const throw()
+const char *RPN::InvalidInput::what() const throw()
 {
     return ("Invalid Input !!!");
 }
@@ -58,7 +58,7 @@ int RPN::calculate_result(int number1, int number2, char c)
         case '/':
         {
             if (number2 == 0)
-                throw RPN::WrongInput();
+                throw RPN::InvalidInput();
             return (number1 / number2);
         }
     }
@@ -81,7 +81,7 @@ void RPN::take_input(std::string input)
         {
             if (i + 1 > input.length())
                 if (check_char(input[i + 1]))
-                    throw RPN::WrongInput();
+                    throw RPN::InvalidInput();
             this->_stack.push(input[i] - '0');
         }
         else if (operators.find(input[i]) != std::string::npos)
@@ -98,7 +98,7 @@ void RPN::take_input(std::string input)
         else if (std::isspace(input[i]))
             continue;
         else
-            throw RPN::WrongInput();
+            throw RPN::InvalidInput();
     }
     if (_stack.size() != 1)
         throw RPN::InvalidExpression();

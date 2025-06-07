@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 17:50:51 by sbibers           #+#    #+#             */
-/*   Updated: 2025/06/06 19:10:29 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/06/07 15:43:48 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 #include <string>
 #include <sstream>
 
-// Reverse polish notation = numbers - 1 = operators.
+// Reverse polish notation = numbers - 1 = operators (-+*/).
 // 1 2+3- = (1 + 2) - 3 = 0.
 
 class RPN
 {
     private:
-        std::stack<int> _stack;     
+        std::stack<int> _stack;
     public:
         RPN();
         RPN(const RPN &);
@@ -32,7 +32,7 @@ class RPN
         ~RPN();
         void take_input(std::string input);
         int calculate_result(int number1, int number2, char c);
-        class WrongInput : public std::exception
+        class InvalidInput : public std::exception
         {
             public:
                 const char *what() const throw();
