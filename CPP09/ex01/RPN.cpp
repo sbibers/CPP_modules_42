@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 17:53:38 by sbibers           #+#    #+#             */
-/*   Updated: 2025/06/07 15:44:12 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/06/07 15:48:06 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ const char *RPN::InvalidExpression::what() const throw()
     return ("Invalid Expression");
 }
 
-int RPN::calculate_result(int number1, int number2, char c)
+int RPN::get_result(int number1, int number2, char c)
 {
     switch (c)
     {
@@ -71,7 +71,7 @@ static bool check_char(char c)
         && c != '+' && c != '-');
 }
 
-void RPN::take_input(std::string input)
+void RPN::solution(std::string input)
 {
     std::string operators = "+-*/";
 
@@ -92,7 +92,7 @@ void RPN::take_input(std::string input)
             _stack.pop();
             int number1 = _stack.top();
             _stack.pop();
-            int result = calculate_result(number1, number2, input[i]);
+            int result = get_result(number1, number2, input[i]);
             _stack.push(result);
         }
         else if (std::isspace(input[i]))
