@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:28:46 by sbibers           #+#    #+#             */
-/*   Updated: 2025/06/07 14:50:18 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/06/08 16:39:09 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,27 +24,23 @@ const char *BitcoinExchange::BadData::what() const throw()
 
 BitcoinExchange::BitcoinExchange()
 {
-    std::ifstream file("data.csv");
-    if (!file.is_open())
+    std::ifstream data_file("data.csv");
+    if (!data_file.is_open())
         throw BitcoinExchange::CanNotOpenFile();
     std::string str;
-    std::getline(file, str);
+    std::getline(data_file, str);
     if (str.empty())
         throw BitcoinExchange::BadData();
     if (!check_header(str, ',', "date", "exchange_rate"))
         throw BitcoinExchange::BadData();
-    while (std::getline(file, str))
+    while (std::getline(data_file, str))
     {
         size_t pos = str.find(',');
         if (pos == std::string::npos)
             throw BitcoinExchange::BadData();
         std::string date = str.substr(0, pos);
         std::string rate = str.substr(pos + 1, str.length());
-        if (date.empty())
-            throw BitcoinExchange::BadData();
-        if (!check_date(date))
-            throw BitcoinExchange::BadData();
-        if (rate.empty())
+        if (date.empty() || !check_date(date) || rate.empty())
             throw BitcoinExchange::BadData();
         _map[date] = std::atof(rate.c_str());
     }
@@ -52,22 +48,22 @@ BitcoinExchange::BitcoinExchange()
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &obj)
 {
-    _map = obj._map;
+    this->_map = obj._map;
 }
 
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &obj)
 {
     if (this != &obj)
-        _map = obj._map;
+        this->_map = obj._map;
     return (*this);
 }
 
 BitcoinExchange::~BitcoinExchange()
 {}
 
-bool BitcoinExchange::check_date(const std::string &date)
+bool BitcoinExchange::check_date(const std::string &date) const
 {
-    int count = 0;
+    size_t count = 0;
     for (size_t i = 0; i < date.length(); i++)
     {
         if (date[i] == '-')
@@ -98,7 +94,7 @@ bool BitcoinExchange::check_header(const std::string &line, char delimiter,
     return (left == expected_left && right == expected_right);
 }
 
-bool BitcoinExchange::valid_date(const std::string &date) const
+static bool valid_date(const std::string &date)
 {
     if (date.length() != 10)
         return (false);
@@ -137,9 +133,9 @@ void BitcoinExchange::calculate_value(const std::string &date, const std::string
     if (std::atof(value.c_str()) < 0 || std::atof(value.c_str()) > 1000)
     {
         if (std::atof(value.c_str()) < 0)
-            std::cerr << "Error: not a positive number." << std::endl;
+            std::cerr << "Error: not a positive number.\n";
         else if (std::atof(value.c_str()) > 1000)
-            std::cerr << "Error: too large a number." << std::endl;
+            std::cerr << "Error: too large a number.\n";
         return;
     }
     float rate = get_close_rate(date);

@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 13:32:07 by sbibers           #+#    #+#             */
-/*   Updated: 2025/06/07 14:50:16 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/06/08 16:39:21 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,10 @@ class BitcoinExchange
 {
     private:
         std::map<std::string, float> _map;
-        bool valid_date(const std::string& date) const;
         float get_close_rate(const std::string& date) const;
         bool check_header(const std::string &line, char delimiter,
             const std::string &expected_left, const std::string &expected_right);
-        bool check_date(const std::string &date);
+        bool check_date(const std::string &date) const;
     public:
         BitcoinExchange();
         BitcoinExchange(const BitcoinExchange &);
