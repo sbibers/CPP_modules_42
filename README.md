@@ -12,6 +12,7 @@
 | **CPP05** | Exception handling, abstract classes, form execution, polymorphism | **100** |
 | **CPP06** | C++ type casting, serialization, and RTTI-free type identification | **100** |
 | **CPP07** | C++ Function and Class Templates | **100** |
+| **CPP08** | Templated containers, iterators, algorithms, custom containers | **100** |
 
 ---
 
