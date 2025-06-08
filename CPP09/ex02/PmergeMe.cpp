@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 17:48:03 by sbibers           #+#    #+#             */
-/*   Updated: 2025/06/07 21:14:28 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/06/08 17:34:14 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ PmergeMe::PmergeMe(const PmergeMe &obj)
 {
     _vector = obj._vector;
     _deque = obj._deque;
+    _temp_vector = obj._temp_vector;
 }
 
 PmergeMe& PmergeMe::operator=(const PmergeMe &obj)
@@ -27,6 +28,7 @@ PmergeMe& PmergeMe::operator=(const PmergeMe &obj)
     {
         _vector = obj._vector;
         _deque = obj._deque;
+        _temp_vector = obj._temp_vector;
     }
     return *this;
 }
@@ -36,7 +38,7 @@ PmergeMe::~PmergeMe()
 
 const char *PmergeMe::InvalidInput::what() const throw()
 {
-    return ("Error: Invalid input");
+    return ("Error: Invalid Input!!!");
 }
 
 bool PmergeMe::is_valid_number(const std::string &str) const
@@ -90,15 +92,15 @@ void PmergeMe::insertion_sort_vector(std::vector<int> &array, int left, int righ
 
 void PmergeMe::merge_insert_sort_vector(std::vector<int> &array)
 {
-    int len = array.size();
-    if (len <= 1)
+    int length = array.size();
+    if (length <= 1)
         return;
-    for (int size = 1; size < len; size *= 2)
+    for (int size = 1; size < length; size *= 2)
     {
-        for (int left = 0; left < len - size; left += 2 * size)
+        for (int left = 0; left < length - size; left += 2 * size)
         {
             int mid = left + size - 1;
-            int right = std::min(left + 2 * size - 1, len - 1);
+            int right = std::min(left + 2 * size - 1, length - 1);
             
             if (right - left <= 10)
                 insertion_sort_vector(array, left, right);
@@ -146,15 +148,15 @@ void PmergeMe::insertion_sort_deque(std::deque<int> &array, int left, int right)
 
 void PmergeMe::merge_insert_sort_deque(std::deque<int> &array)
 {
-    int len = array.size();
-    if (len <= 1)
+    int length = array.size();
+    if (length <= 1)
         return;
-    for (int size = 1; size < len; size *= 2)
+    for (int size = 1; size < length; size *= 2)
     {
-        for (int left = 0; left < len - size; left += 2 * size)
+        for (int left = 0; left < length - size; left += 2 * size)
         {
             int mid = left + size - 1;
-            int right = std::min(left + 2 * size - 1, len - 1);
+            int right = std::min(left + 2 * size - 1, length - 1);
             
             if (right - left <= 10)
                 insertion_sort_deque(array, left, right);
@@ -184,7 +186,7 @@ void PmergeMe::store_and_check_input(int argc, char **argv)
             throw PmergeMe::InvalidInput();
         _vector.push_back(number);
         _deque.push_back(number);
-        temp_vector.push_back(number);
+        _temp_vector.push_back(number);
     }
 }
 
@@ -212,10 +214,10 @@ void PmergeMe::print_before() const
 // print element before sorting.
 {
     std::cout << "Before: ";
-    for (size_t i = 0; i < temp_vector.size(); i++)
+    for (size_t i = 0; i < _temp_vector.size(); i++)
     {
-        std::cout << temp_vector[i];
-        if (i < temp_vector.size() - 1)
+        std::cout << _temp_vector[i];
+        if (i < _temp_vector.size() - 1)
             std::cout << " ";
     }
     std::cout << std::endl;
