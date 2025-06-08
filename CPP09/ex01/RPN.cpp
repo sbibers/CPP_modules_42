@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 17:53:38 by sbibers           #+#    #+#             */
-/*   Updated: 2025/06/07 15:48:06 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/06/08 17:10:26 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,20 @@ RPN::~RPN()
 
 const char *RPN::InvalidInput::what() const throw()
 {
-    return ("Invalid Input !!!");
+    return ("Error: Invalid Input!!!");
 }
 
 const char *RPN::WrongOperands::what() const throw()
 {
-    return ("Insufficient Operands");
+    return ("Error: Insufficient Operands!!!");
 }
 
 const char *RPN::InvalidExpression::what() const throw()
 {
-    return ("Invalid Expression");
+    return ("Error: Invalid Expression!!!");
 }
 
-int RPN::get_result(int number1, int number2, char c)
+int RPN::calculation(int number1, int number2, char c) const
 {
     switch (c)
     {
@@ -71,7 +71,7 @@ static bool check_char(char c)
         && c != '+' && c != '-');
 }
 
-void RPN::solution(std::string input)
+void RPN::solution(const std::string &input)
 {
     std::string operators = "+-*/";
 
@@ -80,9 +80,11 @@ void RPN::solution(std::string input)
         if (std::isdigit(input[i]))
         {
             if (i + 1 > input.length())
+            {
                 if (check_char(input[i + 1]))
                     throw RPN::InvalidInput();
-            this->_stack.push(input[i] - '0');
+            }
+            _stack.push(input[i] - '0');
         }
         else if (operators.find(input[i]) != std::string::npos)
         { 
@@ -92,7 +94,7 @@ void RPN::solution(std::string input)
             _stack.pop();
             int number1 = _stack.top();
             _stack.pop();
-            int result = get_result(number1, number2, input[i]);
+            int result = calculation(number1, number2, input[i]);
             _stack.push(result);
         }
         else if (std::isspace(input[i]))
