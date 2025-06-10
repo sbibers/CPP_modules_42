@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 13:28:38 by sbibers           #+#    #+#             */
-/*   Updated: 2025/06/08 17:11:36 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/06/10 15:22:33 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 {
     if (argc != 2)
     {
-        std::cerr << "Error: could not open file." << std::endl;
+        std::cerr << "Error: Invalid Argument." << std::endl;
         return (1);
     }
     try
