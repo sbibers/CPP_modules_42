@@ -13,6 +13,7 @@
 | **CPP06** | C++ type casting, serialization, and RTTI-free type identification | **100** |
 | **CPP07** | C++ Function and Class Templates | **100** |
 | **CPP08** | Templated containers, iterators, algorithms, custom containers | **100** |
+| **CPP09** | STL containers, algorithms, and real-world applications (Bitcoin Exchange, RPN Calculator, Merge-Insert Sort) | **100** |
 
 ---
 
@@ -195,7 +196,7 @@ Implemented three simple function templates:
 
 **Description:**  
 Implemented a function template `iter` that:
-- Takes an array’s address, its length, and a function.
+- Takes an array's address, its length, and a function.
 - Applies the function to each element of the array.
 - Supports both `const` and non-`const` elements.
 
@@ -234,7 +235,7 @@ Implemented a class template `Array<T>` that behaves like a simplified, type-saf
 
 ## 📌 CPP08 - Templated Containers, Iterators & Algorithms
 
-This module focuses on **C++ containers, iterators, and template functions/classes**. You’ll create custom container classes and utility functions, learning how to manipulate collections of data efficiently using modern C++ techniques.
+This module focuses on **C++ containers, iterators, and template functions/classes**. You'll create custom container classes and utility functions, learning how to manipulate collections of data efficiently using modern C++ techniques.
 
 ### 🛠 Topics Covered:
 - Function and class templates
@@ -264,6 +265,88 @@ This module focuses on **C++ containers, iterators, and template functions/class
    - Made it **iterable** by exposing its underlying container iterators.
    - Preserved all `std::stack` functionalities while adding iteration.
    - Verified compatibility with `std::list` by matching behaviors.
+
+---
+
+## 📌 CPP09 - STL, Containers & Algorithms
+
+This module focuses on advanced usage of the C++ Standard Template Library (STL), containers, and algorithms. You will implement real-world inspired programs using containers, error handling, and efficient algorithms.
+
+### 🛠 Topics Covered:
+- STL containers: `std::map`, `std::vector`, `std::deque`, etc.
+- File parsing and validation
+- Error handling and custom error messages
+- Efficient searching and sorting algorithms
+- Time measurement and performance comparison
+
+### 🚀 Completed Exercises:
+
+#### 📦 Exercise 00 — *Bitcoin Exchange*
+
+**Description:**  
+Create a program (`btc`) that outputs the value of a certain amount of bitcoin on a certain date, using a provided CSV database of bitcoin prices. The program takes an input file with lines in the format `date | value` and outputs the value multiplied by the exchange rate for that date (or the closest lower date in the database). Handles invalid input, out-of-range values, and errors with clear messages. Uses at least one STL container.
+
+**Features:**
+- Reads and parses a CSV database of bitcoin prices.
+- Validates input dates and values (date format: `YYYY-MM-DD`, value: float or positive integer between 0 and 1000).
+- For missing dates, uses the closest lower date in the database.
+- Handles errors: file not found, bad input, negative/too large values, invalid dates.
+- Example output:
+  ```
+  2011-01-03 => 3 = 0.9
+  2011-01-03 => 2 = 0.6
+  2011-01-03 => 1 = 0.3
+  2011-01-03 => 1.2 = 0.36
+  2011-01-09 => 1 = 0.32
+  Error: not a positive number.
+  Error: bad input => 2001-42-42
+  2012-01-11 => 1 = 7.1
+  Error: too large a number.
+  ```
+
+---
+
+#### 📦 Exercise 01 — *Reverse Polish Notation (RPN)*
+
+**Description:**  
+Create a program (`RPN`) that evaluates an expression in Reverse Polish Notation (postfix notation) passed as a command-line argument. Only supports single-digit numbers and the operators `+`, `-`, `*`, `/`. Uses at least one STL container. Handles errors with clear messages.
+
+**Features:**
+- Parses and evaluates RPN expressions from the command line.
+- Supports operators: `+`, `-`, `*`, `/` (no brackets or decimals).
+- Handles errors: invalid input, bad tokens, division by zero, etc.
+- Example output:
+  ```
+  $> ./RPN "8 9 * 9 - 9 - 9 - 4 - 1 +"
+  42
+  $> ./RPN "7 7 * 7 -"
+  42
+  $> ./RPN "1 2 * 2 / 2 * 2 4 - +"
+  0
+  $> ./RPN "(1 + 1)"
+  Error
+  ```
+
+---
+
+#### 📦 Exercise 02 — *PmergeMe (Ford-Johnson Merge-Insert Sort)*
+
+**Description:**  
+Create a program (`PmergeMe`) that sorts a sequence of positive integers using the Ford-Johnson merge-insert sort algorithm. The program must use at least two different STL containers (e.g., `std::vector` and `std::deque`) and display timing information for each. Handles at least 3000 integers and provides clear error messages for invalid input.
+
+**Features:**
+- Accepts a sequence of positive integers as command-line arguments.
+- Implements merge-insert sort (Ford-Johnson algorithm) for two containers.
+- Displays the unsorted and sorted sequences.
+- Measures and displays the time taken for each container.
+- Handles errors: invalid input, negative numbers, duplicates (optional handling).
+- Example output:
+  ```
+  Before: 3 5 9 7 4
+  After: 3 4 5 7 9
+  Time to process a range of 5 elements with std::vector : 0.00031 us
+  Time to process a range of 5 elements with std::deque : 0.00014 us
+  ```
 
 ---
 
