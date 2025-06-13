@@ -360,7 +360,7 @@ Create a program (`PmergeMe`) that sorts a sequence of positive integers using t
 
 ## 📌 Author:
 **Salam Baybars**  
-*42 Amman Student | Computer Science Enthusiast*
+*42 Amman Student (Software Developer)*
 
 - 📧 [salambaybars@gmail.com](mailto:salambaybars@gmail.com)
 - 📸 [Instagram](https://www.instagram.com/salam._.baybars/)
