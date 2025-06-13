@@ -363,8 +363,8 @@ Create a program (`PmergeMe`) that sorts a sequence of positive integers using t
 *42 Amman Student (Software Developer)*
 
 - 📧 [salambaybars@gmail.com](mailto:salambaybars@gmail.com)
-- 📸 [Instagram](https://www.instagram.com/salam._.baybars/)
 - 💼 [LinkedIn](https://www.linkedin.com/in/salam-baybars-081289352/)
+- 📸 [Instagram](https://www.instagram.com/salam._.baybars/)
 
 ---
 
