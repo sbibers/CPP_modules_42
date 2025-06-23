@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
+/*   By: sbibers <sbibers@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 13:28:46 by sbibers           #+#    #+#             */
-/*   Updated: 2025/06/08 17:11:28 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/06/23 15:58:07 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ const char *BitcoinExchange::BadData::what() const throw()
 
 BitcoinExchange::BitcoinExchange()
 {
+    bool flag = false;
+
     std::ifstream data_file("data.csv");
     if (!data_file.is_open())
         throw BitcoinExchange::CanNotOpenFile();
@@ -35,6 +37,7 @@ BitcoinExchange::BitcoinExchange()
         throw BitcoinExchange::BadData();
     while (std::getline(data_file, str))
     {
+        flag = true;
         size_t pos = str.find(',');
         if (pos == std::string::npos)
             throw BitcoinExchange::BadData();
@@ -44,6 +47,8 @@ BitcoinExchange::BitcoinExchange()
             throw BitcoinExchange::BadData();
         _map[date] = std::atof(rate.c_str());
     }
+    if (flag == false)
+        throw BitcoinExchange::BadData();
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &obj)
