@@ -6,7 +6,7 @@
 /*   By: sbibers <sbibers@student.42.amman>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 17:43:56 by sbibers           #+#    #+#             */
-/*   Updated: 2025/06/08 17:33:07 by sbibers          ###   ########.fr       */
+/*   Updated: 2025/10/15 14:31:28 by sbibers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <cstdlib>
 #include <iomanip>
 #include <ctime>
+#include <algorithm>
 
 class PmergeMe
 {
@@ -31,12 +32,17 @@ class PmergeMe
         clock_t end_time;
         double vector_time;
         double deque_time;
-        void merge_insert_sort_vector(std::vector<int> &arr);
-        void merge_vector(std::vector<int> &arr, int left, int mid, int right);
-        void insertion_sort_vector(std::vector<int> &arr, int left, int right);
-        void merge_insert_sort_deque(std::deque<int> &arr);
-        void merge_deque(std::deque<int> &arr, int left, int right, int mid);
-        void insertion_sort_deque(std::deque<int> &arr, int left, int right);
+        
+        // Ford-Johnson algorithm for vector
+        void ford_johnson_sort_vector(std::vector<int> &arr);
+        std::vector<int> generate_jacobsthal_sequence(int n);
+        void binary_insert_vector(std::vector<int> &arr, int value, int end);
+        
+        // Ford-Johnson algorithm for deque
+        void ford_johnson_sort_deque(std::deque<int> &arr);
+        std::vector<int> generate_jacobsthal_sequence_deque(int n);
+        void binary_insert_deque(std::deque<int> &arr, int value, int end);
+        
         bool is_valid_number(const std::string &str) const;
         void print_time(const std::string &container, double time) const;
         void store_and_check_input(int argc, char **argv);
